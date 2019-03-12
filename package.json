@@ -1,0 +1,19 @@
+{
+  "name": "vl-ui-alert",
+  "version": "0.0.1",
+  "description": "An alert (or notice) keeps the user updated about important information.",
+  "main": "vl-ui-alert.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-alert.git"
+  },
+  "author": "DIDM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-alert/issues"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme"
+}
