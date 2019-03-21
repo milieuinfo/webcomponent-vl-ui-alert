@@ -1,11 +1,8 @@
 {
   "name": "vl-ui-alert",
-  "version": "0.0.1",
-  "description": "An alert (or notice) keeps the user updated about important information.",
+  "version": "0.0.0",
+  "description": "De \"alert\" UI component van Webuniversum Vlaanderen als Web Component",
   "main": "vl-ui-alert.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-alert.git"
@@ -14,6 +11,34 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/milieuinfo/webcomponent-vl-ui-alert/issues"
+  },
+  "scripts": {
+    "prepare": "npm run prepare:util && npm run prepare:build",
+    "prepare:util": "npm explore vl-ui-util -- npm run util",
+    "prepare:build": "uglifyjs --compress --mangle --output vl-alert.js -- *.src.js",
+    "test": "wct -l chrome,firefox --npm",
+    "release": "np",
+    "release:prepare": "npm run release:prepare:update && npm run release:prepare:css && npm run release:prepare:core && npm run release:prepare:commit",
+    "release:prepare:update": "git fetch && git pull",
+    "release:prepare:css": "replace '../style.css' https://cdn.milieuinfo.be/vl-ui-alert/$release_version/style.css vl-alert.js",
+    "release:prepare:core": "replace './node_modules/vl-ui-core/vl-core.src.js' https://cdn.milieuinfo.be/vl-ui-alert/$release_version/node_modules/vl-ui-core/vl-core.js vl-alert.js",
+    "release:prepare:commit": "git add vl-alert.js && git commit --amend --no-edit && git pull",
+    "release:testless": "np --yolo",
+    "demo": "http-server"
+  },
+  "dependencies": {
+    "@govflanders/vl-ui-alert": "3.7.2",
+    "@govflanders/vl-ui-util": "3.7.2",
+    "vl-ui-core": "0.0.1"
+  },
+  "devDependencies": {
+    "wct-browser-legacy": "1.0.2",
+    "web-component-tester": "6.9.2",
+    "replace": "1.0.0",
+    "np": "3.0.4",
+    "uglify-js-es6": "2.8.9",
+    "http-server": "0.11.1",
+    "vl-ui-util": "0.0.2"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme"
 }
