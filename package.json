@@ -29,7 +29,7 @@
   "dependencies": {
     "@govflanders/vl-ui-alert": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
-    "vl-ui-core": "0.0.1"
+    "vl-ui-core": "1.0.0"
   },
   "devDependencies": {
     "wct-browser-legacy": "1.0.2",

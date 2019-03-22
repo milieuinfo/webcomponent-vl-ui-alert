@@ -1,21 +1,13 @@
+import {VlElement} from './node_modules/vl-ui-core/vl-core.src.js';
+
 /**
  * vl-alert
  *
  * @demo demo/vl-alert.html
  */
-import './node_modules/vl-ui-core/vl-core.src.js';
-
-
-customElements.define('vl-alert', class extends HTMLElement {
-
+export class VlAlert extends VlElement {
     constructor() {
-
-        // (always call super first)
-        super();
-
-        // Create shadow root
-        this._shadow = this.attachShadow({mode: 'open'});
-        this._shadow.innerHTML = `
+        super(`
             <style>
                 @import "../style.css";
             </style>
@@ -27,130 +19,84 @@ customElements.define('vl-alert', class extends HTMLElement {
                     </div>
                 </div>
             </div>
-        `;
-        this._el = this._shadow.querySelector(".vl-alert");
-        this._iconEl = this._shadow.querySelector(".vl-alert__icon");
-        this._titleEl = this._shadow.querySelector(".vl-alert__title");
+        `);
     }
 
-
-
-    //observed attributes
-    static get observedAttributes() {return ['icon','title','closable','type','size']; }
-
-
-
-    // Respond to attribute changes
-    attributeChangedCallback(attr, oldValue, newValue) {
-        switch (attr) {
-            case 'icon':
-                this._iconChangedCallback(oldValue,newValue);
-                break;
-            case 'title':
-                this._titleChangedCallback(newValue);
-                break;
-            case 'closable':
-                this._closableChangedCallback();
-            case 'type':
-                this._typeChangedCallback(oldValue,newValue);
-            case 'size':
-                this._sizeChangedCallback(oldValue,newValue);
-            default:
-                break;
-        }
-
+    static get _observedAttributes() {
+        return ['icon', 'title', 'closable', 'type', 'size'];
     }
 
+    get _titelElement() {
+        return this._element.querySelector(".vl-alert__title");
+    }
 
-    _iconChangedCallback(oldValue,newValue) {
+    get _iconElement() {
+        return this._element.querySelector('.vl-alert__icon');
+    }
 
-        // remove icon element if no icon attribute
-        if(!this.hasAttribute("icon")){
-            this._shadow.querySelector('.vl-alert__icon').remove();
-            return;
-        }
+    get _closeButtonElement() {
+        return this._element.querySelector('.vl-alert__close');
+    }
 
-        // make icon element if it does not yet exists
-        if(!this._shadow.querySelector('.vl-alert__icon')){
-
-            const iconHtml=`
-                <div class="vl-alert__icon">
-                    <i class="vl-vi vl-vi-${newValue}" aria-hidden="true"></i>
-                    <vl-icon icon="calendar"></vl-icon>
-                </div>
-            `;
-
-            const div = document.createElement('div');
-            div.innerHTML = iconHtml.trim();
-
-            const iconEl = div.firstChild;
-            this._el.insertBefore(iconEl,this._el.firstChild);
-
-            div.remove();
-
-            return;
-        };
-
-        // switch icon if both attribute and element exist
-        this._shadow.querySelector('.vl-alert__icon').classList.remove(".vl-vi-"+oldValue);
-        this._shadow.querySelector('.vl-alert__icon').classList.add(".vl-vi-"+newValue);
-
+    _getIconTemplate(newValue) {
+        return this._template(`
+            <div class="vl-alert__icon">
+                <i class="vl-vi vl-vi-${newValue}" aria-hidden="true"></i>
+                <vl-icon icon="calendar"></vl-icon>
+            </div>
+        `);
     };
 
-    _titleChangedCallback(newValue) {
+    _getCloseButtonTemplate() {
+        return this._template(`
+            <button class="vl-alert__close" type="button">
+                <i class="vl-vi vl-vi-cross" aria-hidden="true"></i>
+                <span class="vl-u-visually-hidden">Melding sluiten</span>
+            </button>
+        `);
+    }
 
-        this._titleEl.textContent = newValue;
-    };
-
-    _closableChangedCallback(){
-
-        if (!this.hasAttribute("closable")){
-            this._shadow.querySelector('.vl-alert__close').remove();
+    _iconChangedCallback(oldValue, newValue) {
+        if (this._iconElement) {
+            this._iconElement.remove();
         }
 
-        if (this.hasAttribute("closable")){
+        if (newValue != undefined) {
+            this._element.insertBefore(this._getIconTemplate(newValue), this._element.firstChild);
+        }
+    };
 
-            const closeButtonHtml = `
-                <button class="vl-alert__close" type="button">
-                    <i class="vl-vi vl-vi-cross" aria-hidden="true"></i>
-                    <span class="vl-u-visually-hidden">Melding sluiten</span>
-                </button>
-            `;
+    _titleChangedCallback(oldValue, newValue) {
+        this._titelElement.textContent = newValue;
+    };
 
-            const div = document.createElement('div');
-            div.innerHTML = closeButtonHtml.trim();
+    _closableChangedCallback(oldValue, newValue) {
+        if (this._closeButtonElement) {
+            this._closeButtonElement.remove();
+        }
 
-            const closeButtonEl = div.firstChild;
-
-            this._el.appendChild(closeButtonEl);
-
-            closeButtonEl.addEventListener('click', e => this.remove());
+        if (newValue != undefined) {
+            const closeButtonTemplate = this._getCloseButtonTemplate();
+            closeButtonTemplate.querySelector('button').addEventListener('click', () => this.remove());
+            this._element.appendChild(closeButtonTemplate);
         }
     }
 
-
-    _typeChangedCallback(oldValue,newValue) {
-
-        const options = ["success","warning","error"];
-
-        if (options.indexOf(oldValue)>= 0){
-            this._el.classList.remove('vl-alert--' + oldValue);
+    _typeChangedCallback(oldValue, newValue) {
+        if (["success", "warning", "error"].indexOf(newValue) >= 0) {
+            this._changeClass(this._element, ('vl-alert--', + oldValue), ('vl-alert--' + newValue));
+        } else {
+            this._element.classList.remove(oldValue);
         }
-        if (options.indexOf(newValue) >= 0){
-            this._el.classList.add('vl-alert--' + newValue);
+    }
+
+    _sizeChangedCallback(oldValue, newValue) {
+        if (["large", "small"].indexOf(newValue) >= 0) {
+            this._changeClass(this._element, ('vl-alert--' + oldValue), ('vl-alert--' + newValue));
+        } else {
+            this._element.classList.remove(oldValue);
         }
-    };
+    }
+}
 
-    _sizeChangedCallback(oldValue,newValue) {
-
-        const options = ["large","small"];
-
-        if (options.indexOf(oldValue)>= 0){
-            this._el.classList.remove('vl-alert--' + oldValue);
-        }
-        if (options.indexOf(newValue)>= 0){
-            this._el.classList.add('vl-alert--' + newValue);
-        }
-    };
-
-});
+customElements.define('vl-alert', VlAlert);
