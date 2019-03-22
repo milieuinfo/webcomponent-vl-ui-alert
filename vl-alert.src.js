@@ -86,7 +86,7 @@ export class VlAlert extends VlElement {
         if (["success", "warning", "error"].indexOf(newValue) >= 0) {
             this._changeClass(this._element, ('vl-alert--', + oldValue), ('vl-alert--' + newValue));
         } else {
-            this._element.classList.remove(oldValue);
+            this._element.classList.remove('vl-alert--' + oldValue);
         }
     }
 
@@ -94,7 +94,7 @@ export class VlAlert extends VlElement {
         if (["large", "small"].indexOf(newValue) >= 0) {
             this._changeClass(this._element, ('vl-alert--' + oldValue), ('vl-alert--' + newValue));
         } else {
-            this._element.classList.remove(oldValue);
+            this._element.classList.remove('vl-alert--' + oldValue);
         }
     }
 }
