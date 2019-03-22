@@ -40,5 +40,8 @@
     "http-server": "0.11.1",
     "vl-ui-util": "0.0.2"
   },
-  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme"
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
+  "publishConfig": {
+    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+  }
 }
