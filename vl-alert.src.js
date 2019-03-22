@@ -1,11 +1,11 @@
-import {VlElement} from './node_modules/vl-ui-core/vl-core.src.js';
+import { VlElement } from './node_modules/vl-ui-core/vl-core.src.js';
 
 /**
  * vl-alert
  *
  * @demo demo/vl-alert.html
  */
-export class VlAlert extends VlElement {
+export class VlAlert extends VlElement(HTMLElement) {
     constructor() {
         super(`
             <style>
@@ -24,6 +24,10 @@ export class VlAlert extends VlElement {
 
     static get _observedAttributes() {
         return ['icon', 'title', 'closable', 'type', 'size'];
+    }
+
+    get _classPrefix() {
+        return 'vl-alert--';
     }
 
     get _titelElement() {
@@ -84,17 +88,17 @@ export class VlAlert extends VlElement {
 
     _typeChangedCallback(oldValue, newValue) {
         if (["success", "warning", "error"].indexOf(newValue) >= 0) {
-            this._changeClass(this._element, ('vl-alert--', + oldValue), ('vl-alert--' + newValue));
+            this._changeClass(this._element, oldValue, newValue);
         } else {
-            this._element.classList.remove('vl-alert--' + oldValue);
+            this._element.classList.remove(this._classPrefix + oldValue);
         }
     }
 
     _sizeChangedCallback(oldValue, newValue) {
         if (["large", "small"].indexOf(newValue) >= 0) {
-            this._changeClass(this._element, ('vl-alert--' + oldValue), ('vl-alert--' + newValue));
+            this._changeClass(this._element, oldValue, newValue);
         } else {
-            this._element.classList.remove('vl-alert--' + oldValue);
+            this._element.classList.remove(this._classPrefix + oldValue);
         }
     }
 }
