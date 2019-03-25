@@ -21,7 +21,7 @@
     "release:prepare": "npm run release:prepare:update && npm run release:prepare:css && npm run release:prepare:core && npm run release:prepare:commit",
     "release:prepare:update": "git fetch && git pull",
     "release:prepare:css": "replace '\\.\\./style.css' https://cdn.milieuinfo.be/vl-ui-alert/$release_version/style.css vl-alert.js",
-    "release:prepare:core": "replace './node_modules/vl-ui-core/vl-core.src.js' https://cdn.milieuinfo.be/vl-ui-alert/$release_version/node_modules/vl-ui-core/vl-core.js vl-alert.js",
+    "release:prepare:core": "replace './node_modules/vl-ui-core/vl-core.src.js' 'https://cdn.milieuinfo.be/vl-ui-core/1.0.0/vl-core.js' vl-alert.js",
     "release:prepare:commit": "git add vl-alert.js && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
     "demo": "http-server"
