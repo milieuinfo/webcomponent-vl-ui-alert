@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-alert",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "De \"alert\" UI component van Webuniversum Vlaanderen als Web Component",
   "main": "vl-ui-alert.js",
   "repository": {
@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "@govflanders/vl-ui-alert": "3.7.2",
-    "@govflanders/vl-ui-util": "3.7.2"
+    "@govflanders/vl-ui-util": "3.7.2",
+    "vl-ui-core": "1.0.0"
   },
   "peerDependencies": {
     "vl-ui-core": "1.0.0"
