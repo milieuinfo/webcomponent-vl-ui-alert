@@ -1,4 +1,4 @@
-import{VlElement}from"https://cdn.milieuinfo.be/vl-ui-core/1.0.0/vl-core.js";export class VlAlert extends VlElement(HTMLElement){constructor(){super(`
+import{VlElement}from"/node_modules/vl-ui-core/vl-core.js";export class VlAlert extends VlElement(HTMLElement){constructor(){super(`
             <style>
                 @import "https://cdn.milieuinfo.be/vl-ui-alert/1.0.0/style.css";
             </style>
