@@ -1,4 +1,4 @@
-# <vl-alert> Web Component
+# "vl-alert" Web Component
 De ["alert" component van Webuniversum Vlaanderen](https://overheid.vlaanderen.be/webuniversum/v3/documentation/components/vl-ui-alert) als Web Component
 
 
