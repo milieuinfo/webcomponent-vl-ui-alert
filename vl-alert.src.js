@@ -2,7 +2,21 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
 
 /**
  * vl-alert
+ * Gebruik de vl-alert om de gebruiker te informeren over belangrijke informatie.
+ * 
+ * ### Attributen
+ * Attribuut | Uitleg | Waarde
+ * ----------|--------|--------
+ * `title` | De titel van de waarschuwing. | { string } 
+ * `closable` | Voegt de optie toe om de waarschuwing te sluiten door op het sluit icoon te klikken in de rechterbovenhoek. | { boolean }
+ * `small` | Een variant van de waarschuwing maar kleiner | { boolean }
+ * `type` | Het type bepaald de soort van waarschuwing, foutmelding, probleemmelding of succesmelding | {string} success - warning - error
  *
+ * ### Slots
+ * Slot | Uitleg 
+ * -----|--------
+ * `default` | De content van het default slot wordt toegevoegd als content van de waarschuwing.
+ * 
  * @demo demo/vl-alert.html
  */
 export class VlAlert extends VlElement(HTMLElement) {
