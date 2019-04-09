@@ -29,11 +29,11 @@
     "vl-ui-core": "1.0.0"
   },
   "peerDependencies": {
-    "@govflanders/vl-ui-alert": "3.7.2",
-    "@govflanders/vl-ui-util": "3.7.2",
     "vl-ui-core": "1.0.0"
   },
   "devDependencies": {
+    "@govflanders/vl-ui-alert": "3.7.2",
+    "@govflanders/vl-ui-util": "3.7.2",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2",
     "replace": "1.0.0",
