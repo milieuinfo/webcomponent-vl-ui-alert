@@ -4,6 +4,9 @@ import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
  * VlAlert
  * @class
  * @classdesc Gebruik de vl-alert om de gebruiker te informeren over belangrijke informatie. <a href="demo/vl-alert.html">Demo</a>.
+ * 
+ * @extends VlElement
+ * 
  * @property {string} title - Attribuut wordt gebruikt als titel van de waarschuwing.
  * @property {boolean} closable - Attribuut wordt gebruikt om de optie toe te voegen om de waarschuwing te sluiten door op het sluit icoon te klikken in de rechterbovenhoek..
  * @property {boolean} small - Attribuut activeert een variant van de waarschuwing maar kleiner.
