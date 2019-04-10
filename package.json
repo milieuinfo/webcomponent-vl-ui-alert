@@ -2,7 +2,7 @@
   "name": "vl-ui-alert",
   "version": "1.0.0",
   "description": "De \"alert\" UI component van Webuniversum Vlaanderen als Web Component",
-  "main": "vl-ui-alert.js",
+  "main": "vl-alert.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-alert.git"
