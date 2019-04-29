@@ -17,6 +17,8 @@ Niet geïmplementeerd:
 * Large versie: wél de class, wat meer padding geeft, maar de rest niet; is eigelijk ook een volledig andere component (volledig andere markup);
 * Naked versie: geen verschil; class staat wel in de documentatie maar zit niet in de code (wordt ook op de WU demo niet toegepast);
 * Dependencies op vl-ui-button, vl-ui-titles en vl-ui-typography: zijn niet van toepassing op het Web Component deel van de alert, hooguit op de content die IN de alert komt. 
+
+
 Overige:
 * om een alert te sluiten wordt gebruik gemaakt van de .remove() method. Deze wordt door IE niet ondersteund. Een polyfill is beschikbaar. Zie https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/remove
 
