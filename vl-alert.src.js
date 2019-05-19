@@ -110,4 +110,4 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 }
 
-customElements.define('vl-alert', VlAlert);
+customElements.define('vl-alert', VlAlert); 
