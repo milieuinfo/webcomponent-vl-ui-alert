@@ -1,4 +1,4 @@
-import { VlElement } from '/node_modules/vl-ui-core/vl-core.js';
+import { NativeVlElement } from '/node_modules/vl-ui-core/vl-core.js';
 import '/node_modules/vl-ui-icon/vl-icon.js';
 
 /**
