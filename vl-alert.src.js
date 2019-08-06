@@ -23,7 +23,10 @@ export class VlAlert extends VlElement(HTMLElement) {
                 <div class="vl-alert__content">
                     <p class="vl-alert__title"></p>
                     <div class="vl-alert__message">
-                        <slot></slot>
+                        <slot name="message"></slot>
+                    </div>
+                    <div class="vl-alert__actions">
+                        <slot name="actions"></slot>
                     </div>
                 </div>
             </div>
