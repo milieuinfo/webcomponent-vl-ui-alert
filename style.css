@@ -2835,10 +2835,10 @@ a.vl-vi {
     display: block; }
 
 .vl-u-offset--spacing {
-  padding: 0 4.1666666667% 1rem; }
+  padding: 0 4.16667% 1rem; }
 
 .vl-u-offset--left {
-  margin-left: -4.1666666667%; }
+  margin-left: -4.16667%; }
   @media screen and (max-width: 767px) {
     .vl-u-offset--left {
       margin-left: 0;
@@ -2847,7 +2847,7 @@ a.vl-vi {
     padding-left: 0; }
 
 .vl-u-offset--right {
-  margin-right: -4.1666666667%; }
+  margin-right: -4.16667%; }
   @media screen and (max-width: 767px) {
     .vl-u-offset--right {
       margin-left: 0;
@@ -2918,10 +2918,13 @@ a.vl-vi {
   .vl-u-show-on-print {
     display: block; }
 
-  header, footer {
+  header,
+  footer {
     display: none; }
-    .vl-main-content header, [role="main"] header, main header,
-    .vl-main-content footer, [role="main"] footer, main footer {
+    .vl-main-content header, [role="main"] header, main header, .vl-main-content
+    footer, [role="main"]
+    footer, main
+    footer {
       display: block; }
 
   .iwgh3,
@@ -3136,7 +3139,7 @@ mark,
     border: 0;
     border-top: 0.3rem solid #05c; }
   .vl-alert--error {
-    background-color: #fbe6e6; }
+    background-color: #fae6e6; }
     .vl-alert--error .vl-alert__icon {
       background-color: #db3434;
       color: #fff; }
