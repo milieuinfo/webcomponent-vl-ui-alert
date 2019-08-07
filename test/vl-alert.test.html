@@ -109,7 +109,6 @@
                 test('de message en actions slots op de juiste plaats in de DOM terecht komen\'', () => {
                     const alert = fixture('vl-alert-fixture');
                     const message = document.createElement('p');
-                    message.setAttribute('slot', 'message');
                     const button = document.createElement('button');
                     button.setAttribute('slot', 'actions');
                     alert.appendChild(message);
