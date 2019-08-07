@@ -223,18 +223,14 @@
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" title="Opgelet!"&gt;
           &lt;p slot="message"&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
-          &lt;div slot="actions"&gt;
-            &lt;button is="vl-button"&gt;Fout melden&lt;/button&gt;
-          &lt;/div&gt;
+          &lt;button slot="actions" is="vl-button"&gt;Fout melden&lt;/button&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert icon="info" title="Opgelet!">
         <p slot="message">U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
-        <div slot="actions">
-          <button is="vl-button">Fout melden</button>
-        </div>
+        <button slot="actions" is="vl-button">Fout melden</button>
       </vl-alert>
     </div>
   </div>

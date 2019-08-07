@@ -33,6 +33,11 @@ export class VlAlert extends VlElement(HTMLElement) {
         `);
     }
 
+    connectedCallback(){
+        this._element.querySelector("slot[name='actions']").assignedNodes()
+            .forEach(button=>button.classList.add("vl-button--narrow"));
+    }
+
     static get _observedAttributes() {
         return ['icon', 'title', 'closable', 'type', 'size'];
     }

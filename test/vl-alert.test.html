@@ -14,6 +14,15 @@
             </template>
         </test-fixture>
 
+        <test-fixture id="vl-alert-slots-fixture">
+            <template>
+                <vl-alert>
+                    <p slot="message" id="test-message">Message</p>
+                    <button slot="actions" id="test-action">Action</button>
+                </vl-alert>
+            </template>
+        </test-fixture>
+
         <script>
             suite('<vl-alert>', () => {
                 const should = chai.should();
@@ -104,6 +113,16 @@
                     assert.isTrue(document.body.contains(alert));
                     closeBtn.click();
                     assert.isFalse(document.body.contains(alert));
+                });
+
+                test('de message en actions slots op de juiste plaats in de DOM terecht komen', () => {
+                    const alert = fixture('vl-alert-slots-fixture');
+                    const messageSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__message slot").assignedNodes()[0];
+                    const actionsSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__actions slot").assignedNodes()[0];
+                    assert.equal(messageSlotContent.innerText,'Message');
+                    assert.equal(actionsSlotContent.innerText,'Action');
+                    assert.equal(actionsSlotContent.tagName,'BUTTON');
+                    assert.isTrue(actionsSlotContent.classList.contains('vl-button--narrow'));
                 });
             });
         </script>
