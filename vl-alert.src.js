@@ -23,7 +23,7 @@ export class VlAlert extends VlElement(HTMLElement) {
                 <div class="vl-alert__content">
                     <p class="vl-alert__title"></p>
                     <div class="vl-alert__message">
-                        <slot name="message"></slot>
+                        <slot></slot>
                     </div>
                     <div class="vl-alert__actions">
                         <slot name="actions"></slot>
@@ -33,10 +33,16 @@ export class VlAlert extends VlElement(HTMLElement) {
         `);
     }
 
-    connectedCallback(){
-        this.actionsSlotElement.addEventListener('slotchange', () => {
-            this.actionsSlotElement.assignedNodes().querySelectorAll('button').forEach(button => button.classList.add("vl-button--narrow"));
+    connectedCallback() {
+        this._actionsSlotElement.addEventListener('slotchange', (e) => {
+            this._actionsSlotElement.assignedNodes().forEach(element => {
+                if (element instanceof HTMLButtonElement) {
+                    element.classList.add("vl-button--narrow");
+                }
+            });
+            this.__processActionsElementVisibility();
         });
+        this.__processActionsElementVisibility();
     }
 
     static get _observedAttributes() {
@@ -55,11 +61,19 @@ export class VlAlert extends VlElement(HTMLElement) {
         return this._element.querySelector('.vl-alert__icon');
     }
 
+    get _contentElement() {
+        return this._element.querySelector('.vl-alert__content');
+    }
+
     get _closeButtonElement() {
         return this._element.querySelector('.vl-alert__close');
     }
 
-    get actionsSlotElement(){
+    get _actionsElement() {
+        return this._element.querySelector('.vl-alert__actions');
+    }
+
+    get _actionsSlotElement() {
       return this._element.querySelector("slot[name='actions']");
     }
 
@@ -77,6 +91,12 @@ export class VlAlert extends VlElement(HTMLElement) {
                 <i class="vl-vi vl-vi-cross" aria-hidden="true"></i>
                 <span class="vl-u-visually-hidden">Melding sluiten</span>
             </button>
+        `);
+    }
+
+    _getActionsTemplate() {
+        return this._template(`
+            <div class="vl-alert__actions"></div>
         `);
     }
 
@@ -119,6 +139,14 @@ export class VlAlert extends VlElement(HTMLElement) {
             this._changeClass(this._element, oldValue, newValue);
         } else {
             this._element.classList.remove(this._classPrefix + oldValue);
+        }
+    }
+
+    __processActionsElementVisibility() {
+        if (this._actionsSlotElement.assignedElements().length == 0) {
+            this._actionsElement.style.display = 'none';
+        } else {
+            this._actionsElement.style.display = 'block';
         }
     }
 }

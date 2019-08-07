@@ -44,7 +44,7 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info"&gt;
-          &lt;div slot="message"&gt;
+          &lt;div&gt;
             &lt;p&gt;Dit is een melding met pictogram en boodschap.&lt;/p&gt;
             &lt;p&gt;De boodschap bestaat uit standaard HTML.&lt;/p&gt;
             &lt;p&gt;De boodschap kan dus uit meerdere paragrafen bestaan en &lt;a href="#"&gt;links&lt;/a&gt; en andere HTML elementen bevatten.&lt;/p&gt;
@@ -54,7 +54,7 @@
     </pre>
     <div class="demo">
       <vl-alert icon="info">
-        <div slot="message">
+        <div>
           <p>Dit is een melding met pictogram en boodschap.</p>
           <p>De boodschap bestaat uit standaard HTML.</p>
           <p>De boodschap kan dus uit meerdere paragrafen bestaan en <a href="#">links</a> en andere HTML elementen bevatten.</p>
@@ -68,7 +68,7 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" title="Dit is een melding met pictogram, titel en boodschap."&gt;
-          &lt;div slot="message"&gt;
+          &lt;div&gt;
             &lt;p&gt;De titel is vetgedrukte tekst.&lt;/p&gt;
             &lt;p&gt;Het bericht bestaat uit standaard HTML.&lt;/p&gt;
             &lt;p&gt;Het bericht kan dus uit meerdere paragrafen bestaan en &lt;a href="#"&gt;links&lt;/a&gt; en andere HTML elementen bevatten.&lt;/p&gt;
@@ -78,7 +78,7 @@
     </pre>
     <div class="demo">
       <vl-alert icon="info" title="Dit is een melding met pictogram, titel en boodschap.">
-        <div slot="message">
+        <div>
           <p>De titel is vetgedrukte tekst.</p>
           <p>Het bericht bestaat uit standaard HTML.</p>
           <p>Het bericht kan dus uit meerdere paragrafen bestaan en <a href="#">links</a> en andere HTML elementen bevatten.</p>
@@ -92,13 +92,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" title="Sluitbare melding" closable&gt;
-          &lt;p slot="message"&gt;Deze melding kan worden gesloten door middel van het knopje rechtsboven.&lt;/p&gt;
+          &lt;p&gt;Deze melding kan worden gesloten door middel van het knopje rechtsboven.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert icon="info" title="Sluitbare melding" closable>
-        <p slot="message">Deze melding kan worden gesloten door middel van het knopje rechtsboven.</p>
+        <p>Deze melding kan worden gesloten door middel van het knopje rechtsboven.</p>
       </vl-alert>
     </div>
   </div>
@@ -108,13 +108,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert type="success" icon="check" title="Gelukt!"&gt;
-          &lt;p slot="message"&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+          &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert type="success" icon="check" title="Gelukt!">
-        <p slot="message">Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
+        <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
       </vl-alert>
     </div>
   </div>
@@ -124,13 +124,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert type="warning" icon="alert-triangle" title="Technische storing"&gt;
-          &lt;p slot="message"&gt;Door een technische storing is dit loket tijdelijk niet beschikbaar.&lt;/p&gt;
+          &lt;p&gt;Door een technische storing is dit loket tijdelijk niet beschikbaar.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert type="warning" icon="alert-triangle" title="Technische storing">
-       <p slot="message">Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
+       <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
       </vl-alert>
     </div>
   </div>
@@ -140,13 +140,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert type="error" icon="warning" title="Error!"&gt;
-          &lt;p slot="message"&gt;Er is een fout opgetreden.&lt;/p&gt;
+          &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert type="error" icon="warning" title="Error!">
-        <p slot="message">Er is een fout opgetreden.</p>
+        <p>Er is een fout opgetreden.</p>
       </vl-alert>
     </div>
   </div>
@@ -156,13 +156,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" size="small"&gt;
-          &lt;p slot="message"&gt;Dit is een kleine melding zonder titel.&lt;/p&gt;
+          &lt;p&gt;Dit is een kleine melding zonder titel.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert icon="info" size="small">
-        <p slot="message">Dit is een kleine melding zonder titel.</p>
+        <p>Dit is een kleine melding zonder titel.</p>
       </vl-alert>
     </div>
   </div>
@@ -184,13 +184,13 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" size="small" title="Kleine melding met titel en inhoud"&gt;
-          &lt;p slot="message"&gt;Dit is een kleine melding met titel en inhoud&lt;/p&gt;
+          &lt;p&gt;Dit is een kleine melding met titel en inhoud&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert icon="info" size="small" title="Kleine melding met titel en inhoud">
-        <p slot="message">Dit is een kleine melding met titel en inhoud</p>
+        <p>Dit is een kleine melding met titel en inhoud</p>
       </vl-alert>
     </div>
   </div>
@@ -200,7 +200,7 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" title="Grote melding" size="large"&gt;
-          &lt;div slot="message"&gt;
+          &lt;div&gt;
             &lt;p&gt;De grote melding is vooral ruimer opgezet, met extra padding.&lt;/p&gt;
             &lt;p&gt;De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï&lt;/p&gt;
             &lt;/div&gt;
@@ -209,7 +209,7 @@
     </pre>
     <div class="demo">
       <vl-alert icon="info" title="Grote melding" size="large">
-        <div slot="message">
+        <div>
           <p>De grote melding is vooral ruimer opgezet, met extra padding.</p>
           <p>De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï</p>
         </div>
@@ -222,15 +222,15 @@
     <pre>
       <code class="line-numbers language-markup">
         &lt;vl-alert icon="info" title="Opgelet!"&gt;
-          &lt;p slot="message"&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
+          &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
           &lt;button slot="actions" is="vl-button"&gt;Fout melden&lt;/button&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
       <vl-alert icon="info" title="Opgelet!">
-        <p slot="message">U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
-        <button slot="actions" is="vl-button">Fout melden</button>
+        <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
+        <button slot="actions" is="vl-button" id="b1">Fout melden</button>
       </vl-alert>
     </div>
   </div>
