@@ -34,10 +34,9 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 
     connectedCallback(){
-        this.actionsSlotElement.addEventListener('slotchange',
-            (e)=>{this.actionsSlotElement.assignedNodes()
-              .forEach(button=>button.classList.add("vl-button--narrow"));
-        })
+        this.actionsSlotElement.addEventListener('slotchange', () => {
+            this.actionsSlotElement.assignedNodes().querySelectorAll('button').forEach(button => button.classList.add("vl-button--narrow"));
+        });
     }
 
     static get _observedAttributes() {
