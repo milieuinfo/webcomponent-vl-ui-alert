@@ -120,14 +120,11 @@
 
                 test('bevat buttons in actions slot met juiste button class', () => {
                     const alert = fixture('vl-alert-fixture');
-                    const message = document.createElement('p');
-                    message.setAttribute('slot', 'message');
                     const button = document.createElement('button');
                     button.setAttribute('slot', 'actions');
-                    alert.appendChild(message);
                     alert.appendChild(button);
                     flush(() => {
-                        const actionsSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__actions slot").assignedNodes()[0];
+                        const actionsSlotContent = alert.shadowRoot.querySelector(".vl-alert__actions slot").assignedNodes()[0];
                         assert.isTrue(actionsSlotContent.classList.contains('vl-button--narrow'));
                     });
                 });
