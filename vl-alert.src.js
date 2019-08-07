@@ -34,8 +34,10 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 
     connectedCallback(){
-        this._element.querySelector("slot[name='actions']").assignedNodes()
-            .forEach(button=>button.classList.add("vl-button--narrow"));
+        this.actionsSlotElement.addEventListener('slotchange',
+            (e)=>{this.actionsSlotElement.assignedNodes()
+              .forEach(button=>button.classList.add("vl-button--narrow"));
+        })
     }
 
     static get _observedAttributes() {
@@ -56,6 +58,10 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     get _closeButtonElement() {
         return this._element.querySelector('.vl-alert__close');
+    }
+
+    get actionsSlotElement(){
+      return this._element.querySelector("slot[name='actions']");
     }
 
     _getIconTemplate(newValue) {

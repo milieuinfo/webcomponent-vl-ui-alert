@@ -14,6 +14,15 @@
             </template>
         </test-fixture>
 
+        <test-fixture id="vl-alert-slots-fixture">
+            <template>
+                <vl-alert>
+                    <p slot="message" id="test-message">Message</p>
+                    <button slot="actions" id="test-action">Action</button>
+                </vl-alert>
+            </template>
+        </test-fixture>
+
         <script>
             suite('<vl-alert>', () => {
                 const should = chai.should();
@@ -26,8 +35,8 @@
                     const alert = fixture('vl-alert-fixture');
                     let val = "calendar";
 
-                    alert.setAttribute('icon',val);
-                    assert.isTrue(alert.shadowRoot.querySelector(".vl-vi").classList.contains("vl-vi-"+val))
+                    alert.setAttribute('icon', val);
+                    assert.isTrue(alert.shadowRoot.querySelector(".vl-vi").classList.contains("vl-vi-" + val))
                 });
 
                 //title
@@ -36,7 +45,7 @@
                     const alert = fixture('vl-alert-fixture');
                     let val = "Zomaar een titel.";
 
-                    alert.setAttribute('title',val);
+                    alert.setAttribute('title', val);
                     assert.isTrue(alert.shadowRoot.querySelector(".vl-alert__title").textContent == val)
                 });
 
@@ -44,36 +53,36 @@
                 test('bevat shadow element met juiste size class', () => {
 
                     const alert = fixture('vl-alert-fixture');
-                    const vals = ["small","large"];
+                    const vals = ["small", "large"];
 
                     // valid values
-                    for (let val of vals){
-                        alert.setAttribute('size',val);
-                        assert.isTrue(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--"+val));
+                    for (let val of vals) {
+                        alert.setAttribute('size', val);
+                        assert.isTrue(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--" + val));
                     }
 
                     // invalid value
                     let val = "blabla";
-                    alert.setAttribute('size',val);
-                    assert.isFalse(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--"+val));
+                    alert.setAttribute('size', val);
+                    assert.isFalse(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--" + val));
                 });
 
                 // type
                 test('bevat shadow element met juiste type class', () => {
 
                     const alert = fixture('vl-alert-fixture');
-                    const vals = ["success","warning","error"];
+                    const vals = ["success", "warning", "error"];
 
                     // valid values
-                    for (let val of vals){
-                        alert.setAttribute('type',val);
-                        assert.isTrue(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--"+val));
+                    for (let val of vals) {
+                        alert.setAttribute('type', val);
+                        assert.isTrue(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--" + val));
                     }
 
                     // invalid value
                     let val = "blabla";
-                    alert.setAttribute('type',val);
-                    assert.isFalse(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--"+val));
+                    alert.setAttribute('type', val);
+                    assert.isFalse(alert.shadowRoot.querySelector(".vl-alert").classList.contains("vl-alert--" + val));
                 });
 
                 //closable
@@ -84,7 +93,7 @@
                     closeBtn = alert.shadowRoot.querySelector("button");
                     assert.isTrue(closeBtn == null);
 
-                    alert.setAttribute('closable','');
+                    alert.setAttribute('closable', '');
                     closeBtn = alert.shadowRoot.querySelector("button");
                     assert.isTrue(closeBtn != null);
                     assert.isTrue(closeBtn.classList.contains("vl-alert__close"));
@@ -97,7 +106,7 @@
                 //alert closes
                 test('sluit wanneer op sluit-knopje wordt geklikt', () => {
                     const alert = fixture('vl-alert-fixture');
-                    alert.setAttribute('closable','');
+                    alert.setAttribute('closable', '');
 
                     const closeBtn = alert.shadowRoot.querySelector("button");
 
@@ -106,16 +115,21 @@
                     assert.isFalse(document.body.contains(alert));
                 });
 
-                test('de message en actions slots op de juiste plaats in de DOM terecht komen', () => {
-                    const alert = fixture('vl-alert-fixture');
-                    const message = document.createElement('p');
-                    message.setAttribute('slot', 'message');
-                    const button = document.createElement('button');
-                    button.setAttribute('slot', 'actions');
-                    alert.appendChild(message);
-                    alert.appendChild(button);
-                    assert.equal(alert.shadowRoot.querySelector('.vl-alert__message slot').assignedElements()[0], message);
-                    assert.equal(alert.shadowRoot.querySelector('.vl-alert__actions slot').assignedElements()[0], button);
+                test('de message en actions slots op de juiste plaats in de DOM terecht komen\'', () => {
+                    const alert = fixture('vl-alert-slots-fixture');
+                    const messageSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__message slot").assignedNodes()[0];
+                    const actionsSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__actions slot").assignedNodes()[0];
+                    assert.equal(messageSlotContent.innerText, 'Message');
+                    assert.equal(actionsSlotContent.innerText, 'Action');
+                    assert.equal(actionsSlotContent.tagName, 'BUTTON');
+                });
+
+                test('bevat buttons in actions slot met juiste button class', () => {
+                    const alert = fixture('vl-alert-slots-fixture');
+                    flush(() => {
+                        const actionsSlotContent = alert.shadowRoot.querySelector(".vl-alert .vl-alert__content .vl-alert__actions slot").assignedNodes()[0];
+                        assert.isTrue(actionsSlotContent.classList.contains('vl-button--narrow'));
+                    });
                 });
             });
         </script>
