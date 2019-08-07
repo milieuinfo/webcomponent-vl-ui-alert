@@ -23,11 +23,20 @@ export class VlAlert extends VlElement(HTMLElement) {
                 <div class="vl-alert__content">
                     <p class="vl-alert__title"></p>
                     <div class="vl-alert__message">
-                        <slot></slot>
+                        <slot name="message"></slot>
+                    </div>
+                    <div class="vl-alert__actions">
+                        <slot name="actions"></slot>
                     </div>
                 </div>
             </div>
         `);
+    }
+
+    connectedCallback(){
+        this.actionsSlotElement.addEventListener('slotchange', () => {
+            this.actionsSlotElement.assignedNodes().querySelectorAll('button').forEach(button => button.classList.add("vl-button--narrow"));
+        });
     }
 
     static get _observedAttributes() {
@@ -48,6 +57,10 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     get _closeButtonElement() {
         return this._element.querySelector('.vl-alert__close');
+    }
+
+    get actionsSlotElement(){
+      return this._element.querySelector("slot[name='actions']");
     }
 
     _getIconTemplate(newValue) {
