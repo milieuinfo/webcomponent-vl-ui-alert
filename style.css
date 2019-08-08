@@ -4242,4 +4242,13 @@ mark,
   margin-right: 4rem;
 }
 
+.vl-alert {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.vl-alert--fade-out {
+  opacity: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -30,3 +30,12 @@
 // Components
 // ==========================================================================
 @import "vl-ui-alert/src/scss/alert";
+
+.vl-alert {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.vl-alert--fade-out {
+    opacity: 0;
+}
