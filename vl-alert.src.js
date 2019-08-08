@@ -35,11 +35,13 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     connectedCallback() {
         this._actionsSlotElement.addEventListener('slotchange', (e) => {
-            this._actionsSlotElement.assignedNodes().forEach(element => {
-                if (element instanceof HTMLButtonElement) {
-                    element.classList.add("vl-button--narrow");
-                }
-            });
+            if (this._actionsSlotElement && this._actionsSlotElement.assignedNodes()) {
+                this._actionsSlotElement.assignedNodes().forEach(element => {
+                    if (element instanceof HTMLButtonElement) {
+                        element.classList.add("vl-button--narrow");
+                    }
+                });
+            }
             this.__processActionsElementVisibility();
         });
         this.__processActionsElementVisibility();
@@ -143,7 +145,7 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 
     __processActionsElementVisibility() {
-        if (this._actionsSlotElement.assignedElements().length == 0) {
+        if (this._actionsSlotElement && this._actionsSlotElement.assignedElements().length == 0) {
             this._actionsElement.style.display = 'none';
         } else {
             this._actionsElement.style.display = 'block';
