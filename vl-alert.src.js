@@ -35,7 +35,7 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     connectedCallback() {
         this._actionsSlotElement.addEventListener('slotchange', (e) => {
-            if (this._actionsSlotElement && this._actionsSlotElement.assignedNodes()) {
+            if (this._actionsSlotElement) {
                 this._actionsSlotElement.assignedNodes().forEach(element => {
                     if (element instanceof HTMLButtonElement) {
                         element.classList.add("vl-button--narrow");
@@ -77,6 +77,17 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     get _actionsSlotElement() {
       return this._element.querySelector("slot[name='actions']");
+    }
+
+    /**
+     * Schakelt de werking van de close button uit zodat de alert niet gesloten kan worden.
+     * 
+     * @Return {void}
+     */
+    disableClosable() {
+        if (this._closeButtonElement) {
+            this._closeButtonElement.removeEventListener('click', this.__removeAlert);
+        }
     }
 
     _getIconTemplate(newValue) {
@@ -123,7 +134,7 @@ export class VlAlert extends VlElement(HTMLElement) {
 
         if (newValue != undefined) {
             const closeButtonTemplate = this._getCloseButtonTemplate();
-            closeButtonTemplate.querySelector('button').addEventListener('click', () => this.remove());
+            closeButtonTemplate.querySelector('button').addEventListener('click', this.__removeAlert);
             this._element.appendChild(closeButtonTemplate);
         }
     }
@@ -150,6 +161,10 @@ export class VlAlert extends VlElement(HTMLElement) {
         } else {
             this._actionsElement.style.display = 'block';
         }
+    }
+
+    __removeAlert() {
+        this.getRootNode().host.remove();
     }
 }
 
