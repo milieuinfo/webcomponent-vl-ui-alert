@@ -152,6 +152,24 @@
   </div>
 
   <div>
+    <h2>Alert CtA</h2>
+    <pre>
+      <code class="line-numbers language-markup">
+        &lt;vl-alert type="cta" icon="info" title="Opgelet!"&gt;
+          &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
+          &lt;button slot="actions" is="vl-button"&gt;Fout melden&lt;/button&gt;
+        &lt;/vl-alert&gt;
+      </code>
+    </pre>
+    <div class="demo">
+      <vl-alert type="cta" icon="info" title="Opgelet!">
+        <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
+        <button slot="actions" is="vl-button" id="b1">Fout melden</button>
+      </vl-alert>
+    </div>
+  </div>
+
+  <div>
     <h2>Alert small</h2>
     <pre>
       <code class="line-numbers language-markup">
@@ -213,24 +231,6 @@
           <p>De grote melding is vooral ruimer opgezet, met extra padding.</p>
           <p>De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï</p>
         </div>
-      </vl-alert>
-    </div>
-  </div>
-
-  <div>
-    <h2>Alert met button</h2>
-    <pre>
-      <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" title="Opgelet!"&gt;
-          &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
-          &lt;button slot="actions" is="vl-button"&gt;Fout melden&lt;/button&gt;
-        &lt;/vl-alert&gt;
-      </code>
-    </pre>
-    <div class="demo">
-      <vl-alert icon="info" title="Opgelet!">
-        <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
-        <button slot="actions" is="vl-button" id="b1">Fout melden</button>
       </vl-alert>
     </div>
   </div>
