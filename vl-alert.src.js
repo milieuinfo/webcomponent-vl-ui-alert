@@ -156,7 +156,7 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 
     __processActionsElementVisibility() {
-        if (this._actionsSlotElement.assignedElements().length == 0) {
+        if (this._actionsSlotElement && this._actionsSlotElement.assignedElements().length == 0) {
             this._actionsElement.style.display = 'none';
         } else {
             this._actionsElement.style.display = 'block';
