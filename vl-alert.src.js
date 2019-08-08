@@ -127,7 +127,7 @@ export class VlAlert extends VlElement(HTMLElement) {
     }
 
     _typeChangedCallback(oldValue, newValue) {
-        if (["success", "warning", "error"].indexOf(newValue) >= 0) {
+        if (["success", "warning", "error","cta"].indexOf(newValue) >= 0) {
             this._changeClass(this._element, oldValue, newValue);
         } else {
             this._element.classList.remove(this._classPrefix + oldValue);
