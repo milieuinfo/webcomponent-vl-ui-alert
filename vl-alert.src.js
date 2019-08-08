@@ -85,7 +85,9 @@ export class VlAlert extends VlElement(HTMLElement) {
      * @Return {void}
      */
     disableClosable() {
-        this._closeButtonElement.removeEventListener('click', this.__removeAlert);
+        if (this._closeButtonElement) {
+            this._closeButtonElement.removeEventListener('click', this.__removeAlert);
+        }
     }
 
     _getIconTemplate(newValue) {
