@@ -41,8 +41,8 @@ export class VlAlert extends VlElement(HTMLElement) {
                         element.classList.add("vl-button--narrow");
                     }
                 });
-                this.__processActionsElementVisibility();
             }
+            this.__processActionsElementVisibility();
         });
         this.__processActionsElementVisibility();
     }
