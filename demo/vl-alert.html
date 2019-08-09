@@ -31,11 +31,11 @@
     <h2>Alert met pictogram en titel</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."&gt;&lt;/vl-alert&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."&gt;&lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."></vl-alert>
+      <vl-alert data-vl-icon="info" data-vl-title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."></vl-alert>
     </div>
   </div>
 
@@ -43,7 +43,7 @@
     <h2>Alert met pictogram en boodschap</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info"&gt;
+        &lt;vl-alert data-vl-icon="info"&gt;
           &lt;div&gt;
             &lt;p&gt;Dit is een melding met pictogram en boodschap.&lt;/p&gt;
             &lt;p&gt;De boodschap bestaat uit standaard HTML.&lt;/p&gt;
@@ -53,7 +53,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info">
+      <vl-alert data-vl-icon="info">
         <div>
           <p>Dit is een melding met pictogram en boodschap.</p>
           <p>De boodschap bestaat uit standaard HTML.</p>
@@ -67,7 +67,7 @@
     <h2>Alert met pictogram, titel en boodschap</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" title="Dit is een melding met pictogram, titel en boodschap."&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-title="Dit is een melding met pictogram, titel en boodschap."&gt;
           &lt;div&gt;
             &lt;p&gt;De titel is vetgedrukte tekst.&lt;/p&gt;
             &lt;p&gt;Het bericht bestaat uit standaard HTML.&lt;/p&gt;
@@ -77,7 +77,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Dit is een melding met pictogram, titel en boodschap.">
+      <vl-alert data-vl-icon="info" data-vl-title="Dit is een melding met pictogram, titel en boodschap.">
         <div>
           <p>De titel is vetgedrukte tekst.</p>
           <p>Het bericht bestaat uit standaard HTML.</p>
@@ -97,7 +97,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Sluitbare melding" closable>
+      <vl-alert data-vl-icon="info" data-vl-title="Sluitbare melding" data-vl-closable>
         <p>Deze melding kan worden gesloten door middel van het knopje rechtsboven.</p>
       </vl-alert>
     </div>
@@ -107,13 +107,13 @@
     <h2>Alert success</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert type="success" icon="check" title="Gelukt!"&gt;
+        &lt;vl-alert data-vl-type="success" data-vl-icon="check" data-vl-title="Gelukt!"&gt;
           &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="success" icon="check" title="Gelukt!">
+      <vl-alert data-vl-type="success" data-vl-icon="check" data-vl-title="Gelukt!">
         <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
       </vl-alert>
     </div>
@@ -123,13 +123,13 @@
     <h2>Alert warning</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert type="warning" icon="alert-triangle" title="Technische storing"&gt;
+        &lt;vl-alert data-vl-type="warning" data-vl-icon="alert-triangle" data-vl-title="Technische storing"&gt;
           &lt;p&gt;Door een technische storing is dit loket tijdelijk niet beschikbaar.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="warning" icon="alert-triangle" title="Technische storing">
+      <vl-alert data-vl-type="warning" data-vl-icon="alert-triangle" data-vl-title="Technische storing">
        <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
       </vl-alert>
     </div>
@@ -139,13 +139,13 @@
     <h2>Alert error</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert type="error" icon="warning" title="Error!"&gt;
+        &lt;vl-alert data-vl-type="error" data-vl-icon="warning" data-vl-title="Error!"&gt;
           &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="error" icon="warning" title="Error!">
+      <vl-alert data-vl-type="error" data-vl-icon="warning" data-vl-title="Error!">
         <p>Er is een fout opgetreden.</p>
       </vl-alert>
     </div>
@@ -155,14 +155,14 @@
     <h2>Alert CtA</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert type="cta" icon="info" title="Opgelet!"&gt;
+        &lt;vl-alert data-vl-type="cta" data-vl-icon="info" data-vl-title="Opgelet!"&gt;
           &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
           &lt;button slot="actions" is="vl-button"&gt;Fout melden&lt;/button&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="cta" icon="info" title="Opgelet!">
+      <vl-alert data-vl-type="cta" data-vl-icon="info" data-vl-title="Opgelet!">
         <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
         <button slot="actions" is="vl-button" id="b1">Fout melden</button>
       </vl-alert>
@@ -173,13 +173,13 @@
     <h2>Alert small</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" size="small"&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-size="small"&gt;
           &lt;p&gt;Dit is een kleine melding zonder titel.&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small">
+      <vl-alert data-vl-icon="info" data-vl-size="small">
         <p>Dit is een kleine melding zonder titel.</p>
       </vl-alert>
     </div>
@@ -189,11 +189,11 @@
     <h2>Alert small met titel</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" size="small" title="Kleine melding met titel"&gt;&lt;/vl-alert&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-size="small" data-vl-title="Kleine melding met titel"&gt;&lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small" title="Kleine melding met titel"></vl-alert>
+      <vl-alert data-vl-icon="info" data-vl-size="small" data-vl-title="Kleine melding met titel"></vl-alert>
     </div>
   </div>
 
@@ -201,13 +201,13 @@
     <h2>Alert small met titel en inhoud</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" size="small" title="Kleine melding met titel en inhoud"&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-size="small" data-vl-title="Kleine melding met titel en inhoud"&gt;
           &lt;p&gt;Dit is een kleine melding met titel en inhoud&lt;/p&gt;
         &lt;/vl-alert&gt;
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small" title="Kleine melding met titel en inhoud">
+      <vl-alert data-vl-icon="info" data-vl-size="small" data-vl-title="Kleine melding met titel en inhoud">
         <p>Dit is een kleine melding met titel en inhoud</p>
       </vl-alert>
     </div>
@@ -217,7 +217,7 @@
     <h2>Alert large</h2>
     <pre>
       <code class="line-numbers language-markup">
-        &lt;vl-alert icon="info" title="Grote melding" size="large"&gt;
+        &lt;vl-alert data-vl-icon="info" data-vl-title="Grote melding" data-vl-size="large"&gt;
           &lt;div&gt;
             &lt;p&gt;De grote melding is vooral ruimer opgezet, met extra padding.&lt;/p&gt;
             &lt;p&gt;De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï&lt;/p&gt;
@@ -226,7 +226,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Grote melding" size="large">
+      <vl-alert data-vl-icon="info" data-vl-title="Grote melding" data-vl-size="large">
         <div>
           <p>De grote melding is vooral ruimer opgezet, met extra padding.</p>
           <p>De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï</p>

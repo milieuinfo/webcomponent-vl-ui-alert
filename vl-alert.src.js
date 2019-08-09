@@ -93,7 +93,7 @@ export class VlAlert extends VlElement(HTMLElement) {
     _getIconTemplate(newValue) {
         return this._template(`
             <div class="vl-alert__icon">
-                <span is="vl-icon" icon="${newValue}"></span>
+                <span is="vl-icon" data-vl-icon="${newValue}"></span>
             </div>
         `);
     };
