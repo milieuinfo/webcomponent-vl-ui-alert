@@ -104,7 +104,7 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     _getCloseButtonTemplate() {
         return this._template(`
-            <button class="vl-alert__close" type="button">
+            <button id="close" class="vl-alert__close" type="button">
                 <i class="vl-vi vl-vi-cross" aria-hidden="true"></i>
                 <span class="vl-u-visually-hidden">Melding sluiten</span>
             </button>

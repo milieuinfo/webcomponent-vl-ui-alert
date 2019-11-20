@@ -58,4 +58,15 @@ class VLAlertPage extends Page {
         return this._getAlert('#alert-large');
     }
 
+    async closeAlert() {
+        (await this.getClosableAlert()).getCloseButton().click();
+    }
+
+    async load() {
+        await super.load(config.baseUrl);
+    }
+
+    
 }
+
+module.exports = VLAlertPage;

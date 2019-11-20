@@ -41,7 +41,7 @@
   "dependencies": {
     "chai-webdriver-promised": "^4.0.3",
     "mocha": "6.2.2",
-    "vl-ui-core": "^2.1.0",
+    "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#UIG-271",
     "vl-ui-icon": "^2.1.0"
   },
   "peerDependencies": {
