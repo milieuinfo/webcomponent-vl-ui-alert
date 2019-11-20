@@ -10,7 +10,7 @@ import '/node_modules/vl-ui-icon/vl-icon.js';
  * 
  * @property {string} title - Attribuut wordt gebruikt als titel van de waarschuwing.
  * @property {boolean} closable - Attribuut wordt gebruikt om de optie toe te voegen om de waarschuwing te sluiten door op het sluit icoon te klikken in de rechterbovenhoek..
- * @property {boolean} small - Attribuut activeert een variant van de waarschuwing maar kleiner.
+ * @property {(small | large)} size - Attribuut activeert een variant van de waarschuwing maar kleiner.
  * @property {(success | warning | error)} type - Attribuut bepaalt de soort van waarschuwing, foutmelding, probleemmelding of succesmelding.
  *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-alert/releases/latest|Release notes}
@@ -23,13 +23,13 @@ export class VlAlert extends VlElement(HTMLElement) {
             <style>
                 @import "../style.css";
             </style>
-            <div class="vl-alert" role="alert">
-                <div class="vl-alert__content">
-                    <p class="vl-alert__title"></p>
-                    <div class="vl-alert__message">
+            <div id="alert" class="vl-alert" role="alert">
+                <div id="content" class="vl-alert__content">
+                    <p id="title" class="vl-alert__title"></p>
+                    <div id="message" class="vl-alert__message">
                         <slot></slot>
                     </div>
-                    <div class="vl-alert__actions">
+                    <div id="actions" class="vl-alert__actions">
                         <slot name="actions"></slot>
                     </div>
                 </div>

@@ -23,7 +23,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert></vl-alert>
+      <vl-alert id="alert-empty"></vl-alert>
     </div>
   </div>
 
@@ -35,7 +35,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."></vl-alert>
+      <vl-alert id="alert-iconAndTitle" icon="info" title="Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten."></vl-alert>
     </div>
   </div>
 
@@ -53,7 +53,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info">
+      <vl-alert id="alert-iconAndMessage" icon="info">
         <div>
           <p>Dit is een melding met pictogram en boodschap.</p>
           <p>De boodschap bestaat uit standaard HTML.</p>
@@ -77,7 +77,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Dit is een melding met pictogram, titel en boodschap.">
+      <vl-alert id="alert-iconTitleAndMessage" icon="info" title="Dit is een melding met pictogram, titel en boodschap.">
         <div>
           <p>De titel is vetgedrukte tekst.</p>
           <p>Het bericht bestaat uit standaard HTML.</p>
@@ -97,7 +97,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Sluitbare melding" closable>
+      <vl-alert id="alert-closable" icon="info" title="Sluitbare melding" closable>
         <p>Deze melding kan worden gesloten door middel van het knopje rechtsboven.</p>
       </vl-alert>
     </div>
@@ -113,7 +113,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="success" icon="check" title="Gelukt!">
+      <vl-alert id="alert-success" type="success" icon="check" title="Gelukt!">
         <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
       </vl-alert>
     </div>
@@ -129,7 +129,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="warning" icon="alert-triangle" title="Technische storing">
+      <vl-alert id="alert-warning" type="warning" icon="alert-triangle" title="Technische storing">
        <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
       </vl-alert>
     </div>
@@ -145,7 +145,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="error" icon="warning" title="Error!">
+      <vl-alert id="alert-error" type="error" icon="warning" title="Error!">
         <p>Er is een fout opgetreden.</p>
       </vl-alert>
     </div>
@@ -162,7 +162,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert type="cta" icon="info" title="Opgelet!">
+      <vl-alert id="alert-cta" type="cta" icon="info" title="Opgelet!">
         <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
         <button slot="actions" is="vl-button" id="b1">Fout melden</button>
       </vl-alert>
@@ -179,7 +179,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small">
+      <vl-alert id="alert-smallNoTitle" icon="info" size="small">
         <p>Dit is een kleine melding zonder titel.</p>
       </vl-alert>
     </div>
@@ -193,7 +193,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small" title="Kleine melding met titel"></vl-alert>
+      <vl-alert id="alert-smallTitle " icon="info" size="small" title="Kleine melding met titel"></vl-alert>
     </div>
   </div>
 
@@ -207,7 +207,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" size="small" title="Kleine melding met titel en inhoud">
+      <vl-alert id="alert-smallTitleAndMessage" icon="info" size="small" title="Kleine melding met titel en inhoud">
         <p>Dit is een kleine melding met titel en inhoud</p>
       </vl-alert>
     </div>
@@ -226,7 +226,7 @@
       </code>
     </pre>
     <div class="demo">
-      <vl-alert icon="info" title="Grote melding" size="large">
+      <vl-alert id="alert-large" icon="info" title="Grote melding" size="large">
         <div>
           <p>De grote melding is vooral ruimer opgezet, met extra padding.</p>
           <p>De grote melding van het Webuniversum bevat verder nog een afbeelding in plaats van een pictogram, maar dit is hier niet geï</p>
