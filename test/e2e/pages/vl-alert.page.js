@@ -1,6 +1,6 @@
 const VlAlert = require('../components/vl-alert')
 const { Page } = require('vl-ui-core');
-const { config } = require('vl-ui-core');
+const { Config } = require('vl-ui-core');
 
 class VLAlertPage extends Page {
     async _getAlert(selector) {
@@ -59,14 +59,14 @@ class VLAlertPage extends Page {
     }
 
     async closeAlert() {
-        (await this.getClosableAlert()).getCloseButton().click();
+        const alert = await this.getClosableAlert();
+        const button = await alert.getCloseButton();
+        return button.click();
     }
 
     async load() {
-        await super.load(config.baseUrl);
+        await super.load(Config.baseUrl + '/demo/vl-alert.html');
     }
-
-    
 }
 
 module.exports = VLAlertPage;
