@@ -60,8 +60,4 @@ describe('vl-alert', async () => {
         await assert.eventually.isTrue(alert.isLarge());
     });
 
-    after(() => {
-        driver && driver.quit();
-    });
-
 });
