@@ -49,7 +49,7 @@
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
     "vl-ui-button": "^1.3.3",
-    "vl-ui-util": "^3.4.1"
+    "vl-ui-util": "^3.4.2"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
   "publishConfig": {
