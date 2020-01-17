@@ -37,7 +37,6 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "chai-webdriver-promised": "^4.0.3",
     "vl-ui-core": "^3.0.0",
     "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
