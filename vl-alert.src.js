@@ -1,4 +1,4 @@
-import { NativeVlElement, define } from 'vl-ui-core';
+import { VlElement, define } from 'vl-ui-core';
 import { VlIcon } from 'vl-ui-icon';
 
 /**
