@@ -39,11 +39,11 @@
   "dependencies": {
     "chai-webdriver-promised": "^4.0.3",
     "vl-ui-core": "^3.0.0",
-    "vl-ui-icon": "^2.1.1"
+    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "peerDependencies": {
     "vl-ui-core": "^3.0.0",
-    "vl-ui-icon": "^2.1.0"
+    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
