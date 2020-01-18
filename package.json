@@ -38,16 +38,16 @@
   },
   "dependencies": {
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
-    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
+    "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "peerDependencies": {
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
-    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
+    "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "vl-ui-button": "^1.3.3",
+    "vl-ui-button": "github:milieuinfo/webcomponent-vl-ui-button#ovam-poc",
     "vl-ui-util": "^3.4.2"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
