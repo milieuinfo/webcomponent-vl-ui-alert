@@ -34,7 +34,8 @@
     "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-alert/style.css' vl-alert.js",
     "release:prepare:commit": "git add -f vl-alert.js && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
-    "demo": "http-server"
+    "demo": "http-server",
+    "explode": "rm -rf output.js && node exploder.js"
   },
   "dependencies": {
     "chai-webdriver-promised": "^4.0.3",
@@ -48,6 +49,7 @@
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
+    "event-stream": "^4.0.1",
     "vl-ui-button": "^1.3.3",
     "vl-ui-util": "^3.4.2"
   },
