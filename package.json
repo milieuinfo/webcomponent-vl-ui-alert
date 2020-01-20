@@ -40,18 +40,18 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
-    "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc",
+    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "peerDependencies": {
-    "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
-    "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
+    "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc",
+    "vl-ui-icon": "milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "vl-ui-button": "github:milieuinfo/webcomponent-vl-ui-button#ovam-poc",
-    "vl-ui-util": "^3.4.2",
+    "vl-ui-button": "milieuinfo/webcomponent-vl-ui-button#ovam-poc",
+    "vl-ui-util": "milieuinfo/webcomponent-vl-ui-util#ovam-poc",
     "event-stream": "^4.0.1"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
