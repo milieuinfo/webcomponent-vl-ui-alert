@@ -40,8 +40,6 @@
     "explode": "rm -rf output.js && node exploder.js"
   },
   "dependencies": {
-    "copyfiles": "^2.2.0",
-    "read-file": "^0.2.0",
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
     "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
