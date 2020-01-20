@@ -14,7 +14,7 @@ let stream = fs.createReadStream('vl-alert.src.js')
         
         if(line.indexOf('@import "') >= 0) {
             console.log('Found import on line ' + lineNr + ": " + line.trim());
-            let filePath = line.split("\"")[1]
+            let filePath = line.split("\"")[1].replace('../', '')
             console.log('Reading file from ' + filePath);
             let style = fs.readFileSync(filePath);
             output.write(style + '\r\n');
