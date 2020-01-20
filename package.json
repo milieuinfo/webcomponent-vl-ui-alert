@@ -34,13 +34,12 @@
     "release:prepare:build:es6": "copyfiles -f ./src/*.src.js .",
     "postrelease:prepare:build:es6": "minify *.src.js > ./vl-alert.min.js",
     "release:prepare:build:node": "copyfiles -f ./src/*.src.js .",
+    "postrelease:prepare:build:node": "replace  '/node_modules/.*/(\\w+).js' '$1' vl-alert.src.js",
     "release:prepare:commit": "git add -f vl-alert.js && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
     "demo": "http-server"
   },
   "dependencies": {
-    "copyfiles": "^2.2.0",
-    "read-file": "^0.2.0",
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
     "vl-ui-icon": "github:milieuinfo/webcomponent-vl-ui-icon#ovam-poc"
   },
@@ -51,10 +50,9 @@
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.25.0",
     "vl-ui-button": "github:milieuinfo/webcomponent-vl-ui-button#ovam-poc",
-    "vl-ui-util": "^3.4.2"
+    "vl-ui-util": "^3.4.2",
+    "copyfiles": "^2.2.0"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
   "publishConfig": {
