@@ -34,11 +34,10 @@
     "release:prepare:build:es6": "cp -R ./src/*.src.js ./vl-alert.js",
     "postrelease:prepare:build:es6": "minify *.src.js > ./vl-alert.min.js",
     "release:prepare:build:node": "cp -R ./src/*.src.js .",
-    "postrelease:prepare:build:node": "replace  '/node_modules/.*/(.*).js' '$1' vl-alert.src.js",
+    "postrelease:prepare:build:node": "replace  '/node_modules/.*/(.*).js' '$1' vl-alert.src.js && rm -rf output.js && node builder.js",
     "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
-    "demo": "http-server",
-    "explode": "rm -rf output.js && node exploder.js"
+    "demo": "http-server"
   },
   "dependencies": {
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
