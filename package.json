@@ -37,7 +37,8 @@
     "postrelease:prepare:build:node": "replace  '/node_modules/.*/(.*).js' '$1' vl-alert.src.js",
     "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
-    "demo": "http-server"
+    "demo": "http-server",
+    "explode": "rm -rf output.js && node exploder.js"
   },
   "dependencies": {
     "vl-ui-core": "github:milieuinfo/webcomponent-vl-ui-core#ovam-poc",
@@ -51,7 +52,8 @@
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
     "vl-ui-button": "github:milieuinfo/webcomponent-vl-ui-button#ovam-poc",
-    "vl-ui-util": "^3.4.2"
+    "vl-ui-util": "^3.4.2",
+    "event-stream": "^4.0.1"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
   "publishConfig": {
