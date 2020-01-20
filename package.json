@@ -51,9 +51,9 @@
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
+    "event-stream": "^4.0.1",
     "vl-ui-button": "milieuinfo/webcomponent-vl-ui-button#ovam-poc",
-    "vl-ui-util": "milieuinfo/webcomponent-vl-ui-util#ovam-poc",
-    "event-stream": "^4.0.1"
+    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#ovam-poc"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
   "publishConfig": {
