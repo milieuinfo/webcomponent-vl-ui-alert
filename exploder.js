@@ -4,7 +4,7 @@ let config = require('./package.json');
 
 let lineNr = 0;
 
-let output = fs.createWriteStream('output.js', { encoding: 'utf-8'});
+let output = fs.createWriteStream(getFilename() + '.temp', { encoding: 'utf-8'});
 let stream = fs.createReadStream(getFilename())
     .pipe(es.split())
     .pipe(es.mapSync((line) => {
@@ -29,6 +29,7 @@ let stream = fs.createReadStream(getFilename())
     .on('end', () => {
         console.log('Exploded style successfully!');
         output.end();
+        cleanup();
     })
 );
 
@@ -38,4 +39,21 @@ function sanitizeFilepath(input) {
 
 function getFilename() {
     return config.name.replace('-ui', '') + '.src.js'
+}
+
+function deleteSource() {
+    fs.unlinkSync(getFilename(), (err) => {
+        if(err) throw err
+    });
+}
+
+function renameTempFile() {
+    fs.renameSync(getFilename() + '.temp', getFilename(), () => {
+        console.log('Rename done');
+    });
+}
+
+function cleanup() {
+    deleteSource();
+    renameTempFile();
 }
