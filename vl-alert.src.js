@@ -1,5 +1,5 @@
-import { VlElement, define } from '/node_modules/vl-ui-core/vl-core.js';
-import '/node_modules/vl-ui-icon/vl-icon.js';
+import { VlElement, define } from 'vl-core';
+import 'vl-icon';
 
 /**
  * VlAlert
