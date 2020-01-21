@@ -31,10 +31,12 @@
     "release": "np",
     "release:prepare": "npm run release:prepare:build && npm run release:prepare:css && npm run release:prepare:commit",
     "release:prepare:build": "npm run release:prepare:build:es6 && npm run release:prepare:build:node",
-    "release:prepare:build:es6": "cp -R -f ./src/*.src.js ./vl-alert.js",
-    "postrelease:prepare:build:es6": "minify ./src/*.src.js > ./vl-alert.min.js",
-    "release:prepare:build:node": "cp -R -f ./src/*.src.js .",
-    "postrelease:prepare:build:node": "replace  '/node_modules/.*/(.*).js' '$1' vl-alert.src.js",
+    "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:minify",
+    "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-alert.js",
+    "release:prepare:build:es6:minify": "minify ./src/*.src.js > ./vl-alert.min.js",
+    "release:prepare:build:node": "npm run release:prepare:build:node:copy && npm run release:prepare:build:node:replace",
+    "release:prepare:build:node:copy": "cp -R -f ./src/*.src.js .",
+    "release:prepare:build:node:replace": "replace  '/node_modules/.*/(.*).js' '$1' vl-alert.src.js",
     "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-alert/style.css' vl-alert.js",
     "release:prepare:commit": "git add -f vl-alert.js && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
@@ -52,9 +54,8 @@
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "event-stream": "^4.0.1",
     "vl-ui-button": "milieuinfo/webcomponent-vl-ui-button#ovam-poc",
-    "vl-ui-util": "github:milieuinfo/webcomponent-vl-ui-util#ovam-poc"
+    "vl-ui-util": "milieuinfo/webcomponent-vl-ui-util#ovam-poc"
   },
   "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-alert#readme",
   "publishConfig": {
