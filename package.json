@@ -40,8 +40,7 @@
     "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-alert/style.css' vl-alert.js",
     "release:prepare:commit": "git add -f vl-alert.js && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
-    "demo": "http-server",
-    "explode": "node exploder.js"
+    "demo": "http-server"
   },
   "dependencies": {
     "vl-ui-core": "milieuinfo/webcomponent-vl-ui-core#ovam-poc",
