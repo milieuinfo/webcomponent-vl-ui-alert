@@ -1,6 +1,5 @@
 const VlAlert = require('../components/vl-alert')
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page, config } = require('vl-ui-core').Test;
 
 class VLAlertPage extends Page {
     async _getAlert(selector) {

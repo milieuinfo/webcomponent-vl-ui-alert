@@ -1,5 +1,5 @@
-const { VlAlert } = require('./vl-alert.src.js');
-
 module.exports = { 
-    VlAlert
+    Test: {
+        VlAlert: require('./test/e2e/components/vl-alert.js')
+    }
 }

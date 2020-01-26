@@ -1,4 +1,4 @@
-const { assert, driver } = require('vl-ui-core').Test;
+const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlAlertPage = require('./pages/vl-alert.page');
 
 describe('vl-alert', async () => {
