@@ -1,2 +1,3 @@
-
-export { VlButton } from './vl-button.js';
+module.exports = { 
+    VlAlert: require('../vl-alert.src.js')
+}
