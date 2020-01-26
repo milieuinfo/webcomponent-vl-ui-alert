@@ -17,6 +17,7 @@ class VLAlertPage extends Page {
     async getAlertWithIconAndMessage() {
         return this._getAlert('#alert-iconAndMessage');
     }
+
     async getAlertWithIconTitleAndMessage() {
         return this._getAlert('#alert-iconTitleAndMessage');
     }
@@ -55,12 +56,6 @@ class VLAlertPage extends Page {
 
     async getLargeAlert() {
         return this._getAlert('#alert-large');
-    }
-
-    async closeAlert() {
-        const alert = await this.getClosableAlert();
-        const button = await alert.getCloseButton();
-        return button.click();
     }
 
     async load() {

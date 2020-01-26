@@ -26,7 +26,7 @@ describe('vl-alert', async () => {
 
     it('Als ik een alert sluit is deze niet meer zichtbaar', async () => {
         const alert = await vlAlertPage.getClosableAlert();
-        await vlAlertPage.closeAlert();
+        await alert.close();
         await assert.eventually.isFalse(alert.isPresent());
     });
 

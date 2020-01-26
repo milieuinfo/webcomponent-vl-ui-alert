@@ -80,6 +80,10 @@ class VlAlert extends VlElement {
         return this._alertHasClass('vl-alert--large');
     }
 
+    async close() {
+        const button = await this.getCloseButton();
+        return button.click();
+    }
 }
 
 module.exports = VlAlert
