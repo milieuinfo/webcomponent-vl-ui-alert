@@ -1,5 +1,5 @@
-import { VlElement, define } from 'vl-core';
-import 'vl-icon';
+import { VlElement, define } from 'vl-ui-core';
+import 'vl-ui-icon';
 
 /**
  * VlAlert
