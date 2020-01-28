@@ -4,6 +4,7 @@
   "description": "De \"alert\" UI component van Webuniversum Vlaanderen als Web Component",
   "author": "DIDM",
   "license": "MIT",
+  "type": "module",
   "main": "src/index.js",
   "exports": {
     "require": "index.js",
