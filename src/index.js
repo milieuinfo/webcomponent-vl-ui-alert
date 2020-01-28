@@ -1,3 +1,3 @@
 module.exports = { 
-    VlAlert: require('../vl-alert.src.js')
+    VlAlert: require('../vl-alert.src.js').VlAlert
 }
