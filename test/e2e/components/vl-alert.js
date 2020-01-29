@@ -1,5 +1,5 @@
-const { VlElement } = require('vl-ui-core');
-const { By } = require('selenium-webdriver');
+const { VlElement } = require('vl-ui-core').Test;
+const { By } = require('vl-ui-core').Test.Setup;
 
 class VlAlert extends VlElement {  
     constructor(driver, selector) {
@@ -80,6 +80,10 @@ class VlAlert extends VlElement {
         return this._alertHasClass('vl-alert--large');
     }
 
+    async close() {
+        const button = await this.getCloseButton();
+        return button.click();
+    }
 }
 
 module.exports = VlAlert
