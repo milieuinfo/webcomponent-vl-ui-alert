@@ -1,4 +1,4 @@
-const { assert, driver } = require('vl-ui-core').Test;
+const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlAlertPage = require('./pages/vl-alert.page');
 
 describe('vl-alert', async () => {
@@ -26,7 +26,7 @@ describe('vl-alert', async () => {
 
     it('Als ik een alert sluit is deze niet meer zichtbaar', async () => {
         const alert = await vlAlertPage.getClosableAlert();
-        await vlAlertPage.closeAlert();
+        await alert.close();
         await assert.eventually.isFalse(alert.isPresent());
     });
 
@@ -60,4 +60,10 @@ describe('vl-alert', async () => {
         await assert.eventually.isTrue(alert.isLarge());
     });
 
+    after((done) => { 
+        if (driver) {
+            driver.quit();
+        }
+        done();
+    });
 });
