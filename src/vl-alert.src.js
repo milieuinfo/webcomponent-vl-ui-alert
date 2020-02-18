@@ -30,7 +30,7 @@ export class VlAlert extends VlElement(HTMLElement) {
                         <slot></slot>
                     </div>
                     <div id="actions" class="vl-alert__actions">
-                        <slot name="actions"></slot>
+                        <slot id="actions-slot" name="actions"></slot>
                     </div>
                 </div>
             </div>

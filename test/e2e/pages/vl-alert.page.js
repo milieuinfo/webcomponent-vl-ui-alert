@@ -42,6 +42,10 @@ class VLAlertPage extends Page {
         return this._getAlert('#alert-cta')
     }
 
+    async getTekstVanButtonVanCtaAlert() {
+        return (await (await this.getCtaAlert()).getActions())[0].getText();
+    }
+
     async getSmallAlert() {
         return this._getAlert('#alert-smallNoTitle');
     }

@@ -10,6 +10,7 @@ describe('vl-alert', async () => {
 
     it('Als ik een alert met title gebruik, wordt de text onder messages gerenderd', async () => {
         const alert = await vlAlertPage.getAlertWithIconAndTitle();
+        await assert.eventually.isOk(alert.hasTitle());
         await assert.eventually.equal(alert.getTitle(), 'Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten.');
         await assert.eventually.isOk(alert.hasIcon());
     });
@@ -60,10 +61,9 @@ describe('vl-alert', async () => {
         await assert.eventually.isTrue(alert.isLarge());
     });
 
-    after((done) => { 
-        if (driver) {
-            driver.quit();
-        }
-        done();
+    it('Als ik een alert met actions defineer, kan ik hiervan de tekst opvragen', async() => {
+        await assert.eventually.equal(vlAlertPage.getTekstVanButtonVanCtaAlert(), 'Fout melden');
     });
+
+    after(() => driver.quit());
 });

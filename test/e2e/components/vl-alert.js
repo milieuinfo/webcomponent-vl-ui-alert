@@ -29,7 +29,7 @@ class VlAlert extends VlElement {
     }
     
     async isPresent() {
-        return this.driver.findElements(By.css(this.selector)).size > 0
+        return this.driver.findElements(By.css(this.selector)).size > 0;
     }
     
     async getTitle() {
@@ -41,7 +41,10 @@ class VlAlert extends VlElement {
     }
 
     async getActions() {
-        return this._innerText('#actions');
+      const slot = await (await this._getAlert()).findElement(
+          By.css("#actions-slot"));
+      return this.driver.executeScript(
+          'return arguments[0].assignedElements()', slot);
     }
 
     async hasIcon() {
@@ -86,4 +89,4 @@ class VlAlert extends VlElement {
     }
 }
 
-module.exports = VlAlert
+module.exports = VlAlert;
