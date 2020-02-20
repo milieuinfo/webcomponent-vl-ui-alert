@@ -43,8 +43,7 @@ class VlAlert extends VlElement {
     async getActions() {
       const alert = await this._getAlert();
       const slot = await alert.findElement(By.css("#actions-slot"));
-      return this.driver.executeScript(
-          'return arguments[0].assignedElements()', slot);
+      return this.getAssignedElements(slot);
     }
 
     async hasIcon() {
