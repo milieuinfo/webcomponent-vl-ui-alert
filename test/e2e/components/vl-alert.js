@@ -1,4 +1,5 @@
 const { VlElement } = require('vl-ui-core').Test;
+const { VlIcon } = require('vl-ui-icon').Test;
 const { By } = require('vl-ui-core').Test.Setup;
 
 class VlAlert extends VlElement {  
@@ -6,26 +7,22 @@ class VlAlert extends VlElement {
         super(driver, selector);
     }
 
-    async _getAlert() {
-        return this.shadowRoot;
-    }
-
     async _exists(selector) {
-        return (await this._getAlert()).findElement(By.css(selector)) != null;
+        return await this.shadowRoot.findElement(By.css(selector)) != null;
     }
 
     async _innerText(selector) {
-        const element = await (await this._getAlert()).findElement(By.css(selector));
+        const element = await this.shadowRoot.findElement(By.css(selector));
         return this.driver.executeScript('return arguments[0].innerText', element);
     }
 
     async _alertHasClass(clazz) {
-        const classes =  await (await this._getAlert()).getAttribute('class');
+        const classes =  await this.shadowRoot.getAttribute('class');
         return classes.indexOf(clazz) > 0;
     }
 
     async getCloseButton() {
-        return (await this._getAlert()).findElement(By.css('#close'));
+        return await this.shadowRoot.findElement(By.css('#close'));
     }
     
     async isPresent() {
@@ -41,13 +38,17 @@ class VlAlert extends VlElement {
     }
 
     async getActions() {
-      const alert = await this._getAlert();
-      const slot = await alert.findElement(By.css("#actions-slot"));
+      const slot = await this.shadowRoot.findElement(By.css("#actions-slot"));
       return this.getAssignedElements(slot);
     }
 
     async hasIcon() {
         return this._exists('.vl-alert__icon');
+    }
+
+    async getIcon() {
+        const icon = await this.shadowRoot.findElement(By.css('.vl-alert__icon [is=vl-icon]'));
+        return new VlIcon(this.driver, icon);
     }
 
     async hasTitle() {

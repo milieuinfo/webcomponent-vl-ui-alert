@@ -1,13 +1,10 @@
-const VlAlert = require('../components/vl-alert')
+const VlAlert = require('../components/vl-alert');
+const { VlButton } = require('vl-ui-button').Test;
 const { Page, Config } = require('vl-ui-core').Test;
 
 class VLAlertPage extends Page {
     async _getAlert(selector) {
         return new VlAlert(this.driver, selector);
-    }
-
-    async getEmptyAlert() {
-        return this._getAlert('#alert-empty');
     }
 
     async getAlertWithIconAndTitle() {
@@ -42,8 +39,9 @@ class VLAlertPage extends Page {
         return this._getAlert('#alert-cta')
     }
 
-    async getTekstVanButtonVanCtaAlert() {
-        return (await (await this.getCtaAlert()).getActions())[0].getText();
+    async getButtonVanCtaAlert() {
+      const button = (await (await this.getCtaAlert()).getActions())[0];
+      return new VlButton(this.driver, button);
     }
 
     async getSmallAlert() {
