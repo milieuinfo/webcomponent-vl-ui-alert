@@ -66,6 +66,4 @@ describe('vl-alert', async () => {
       const button = await vlAlertPage.getButtonVanCtaAlert();
       await assert.eventually.equal(button.getText(), 'Fout melden');
     });
-
-    after(async() => driver.quit());
 });
