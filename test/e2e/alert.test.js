@@ -59,11 +59,4 @@ describe('vl-alert', async () => {
         const alert = await vlAlertPage.getLargeAlert();
         await assert.eventually.isTrue(alert.isLarge());
     });
-
-    after((done) => { 
-        if (driver) {
-            driver.quit();
-        }
-        done();
-    });
 });
