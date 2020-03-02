@@ -10,13 +10,15 @@ describe('vl-alert', async () => {
 
     it('Als ik een alert met title gebruik, wordt de text onder messages gerenderd', async () => {
         const alert = await vlAlertPage.getAlertWithIconAndTitle();
+        await assert.eventually.isTrue(alert.hasTitle());
         await assert.eventually.equal(alert.getTitle(), 'Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten.');
-        await assert.eventually.isOk(alert.hasIcon());
     });
 
     it('Als ik een alert met icon gebruik, wordt het icon gerenderd', async () => {
         const alert = await vlAlertPage.getAlertWithIconAndTitle();
-        await assert.eventually.isOk(alert.hasIcon());
+        await assert.eventually.isTrue(alert.hasIcon());
+        const icon = await alert.getIcon();
+        await assert.eventually.equal(icon.getIcon(), 'info');
     });
 
     it('Als ik een message meegeef wordt die correct weergegeven', async () => {
@@ -58,5 +60,10 @@ describe('vl-alert', async () => {
     it('Als ik size als large definieer, zal de alert groot zijn', async() => {
         const alert = await vlAlertPage.getLargeAlert();
         await assert.eventually.isTrue(alert.isLarge());
+    });
+
+    it('Als ik een alert met actions defineer, kan ik hiervan de tekst opvragen', async() => {
+      const button = await vlAlertPage.getButtonVanCtaAlert();
+      await assert.eventually.equal(button.getText(), 'Fout melden');
     });
 });
