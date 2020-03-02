@@ -21,8 +21,8 @@ class VLAlertPage extends Page {
 
     async getMessageInAlert() {
         const alert = await this.getAlertWithIconAndMessage();
-        const message = (await alert.getMessages())[0];
-        return this.driver.executeScript('return arguments[0].innerText', message);
+        const message = (await alert.getMessagesInSlot())[0];
+        return message.getText();
     }
 
     async getClosableAlert() {

@@ -29,7 +29,7 @@ class VlAlert extends VlElement {
         return this._innerText('#title');
     }
 
-    async getMessages() {
+    async getMessagesInSlot() {
         const slot = await this.shadowRoot.findElement(By.css("#messages-slot"));
         return this.getAssignedElements(slot);
     }
