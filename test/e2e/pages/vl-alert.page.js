@@ -7,7 +7,7 @@ class VLAlertPage extends Page {
         return new VlAlert(this.driver, selector);
     }
 
-    async getAlertWithIconAndTitle() {
+    async getAlertWithIconInfoAndTitle() {
         return this._getAlert('#alert-iconAndTitle');
     }
 
@@ -17,6 +17,12 @@ class VLAlertPage extends Page {
 
     async getAlertWithIconTitleAndMessage() {
         return this._getAlert('#alert-iconTitleAndMessage');
+    }
+
+    async getMessageInAlert() {
+        const alert = await this.getAlertWithIconAndMessage();
+        const message = (await alert.getMessages())[0];
+        return this.driver.executeScript('return arguments[0].innerText', message);
     }
 
     async getClosableAlert() {
@@ -36,11 +42,12 @@ class VLAlertPage extends Page {
     }
 
     async getCtaAlert() {
-        return this._getAlert('#alert-cta')
+        return this._getAlert('#alert-cta');
     }
 
-    async getButtonVanCtaAlert() {
-      const button = (await (await this.getCtaAlert()).getActions())[0];
+    async getButtonInAlert() {
+      const alert = await this.getCtaAlert();
+      const button = (await alert.getActions())[0];
       return new VlButton(this.driver, button);
     }
 

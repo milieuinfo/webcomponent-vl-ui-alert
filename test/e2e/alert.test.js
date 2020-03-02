@@ -8,62 +8,63 @@ describe('vl-alert', async () => {
         return vlAlertPage.load();
     });
 
-    it('Als ik een alert met title gebruik, wordt de text onder messages gerenderd', async () => {
-        const alert = await vlAlertPage.getAlertWithIconAndTitle();
+    it('Als gebruiker kan ik de titel zien van een alert met titel', async () => {
+        const alert = await vlAlertPage.getAlertWithIconInfoAndTitle();
         await assert.eventually.isTrue(alert.hasTitle());
         await assert.eventually.equal(alert.getTitle(), 'Dit is een melding met pictogram en titel. Een titel kan enkel tekst bevatten.');
     });
 
-    it('Als ik een alert met icon gebruik, wordt het icon gerenderd', async () => {
-        const alert = await vlAlertPage.getAlertWithIconAndTitle();
+    it('Als gebruiker kan ik zien dat het icon wordt gerenderd met type info als ik een alert met icon gebruik.', async () => {
+        const alert = await vlAlertPage.getAlertWithIconInfoAndTitle();
         await assert.eventually.isTrue(alert.hasIcon());
         const icon = await alert.getIcon();
         await assert.eventually.equal(icon.getIcon(), 'info');
+        await assert.eventually.isTrue(alert.isInfo());
     });
 
-    it('Als ik een message meegeef wordt die correct weergegeven', async () => {
-        const alert = await vlAlertPage.getAlertWithIconAndMessage();
-        await assert.eventually.notStrictEqual(alert.getMessage(), 'De boodschap bestaat uit standaard HTML. De boodschap kan dus uit meerdere paragrafen bestaan en links en andere HTML elementen bevatten.');
+    it('Als gebruiker kan ik een zelf gedefinieerde message zien', async () => {
+        await assert.eventually.notStrictEqual(vlAlertPage.getMessageInAlert(),
+            'De boodschap bestaat uit standaard HTML. De boodschap kan dus uit meerdere paragrafen bestaan en links en andere HTML elementen bevatten.');
     });
 
-    it('Als ik een alert sluit is deze niet meer zichtbaar', async () => {
+    it('Als gebruiker kan ik een alert niet meer zien nadat die gesloten is', async () => {
         const alert = await vlAlertPage.getClosableAlert();
         await alert.close();
         await assert.eventually.isFalse(alert.isPresent());
     });
 
-    it('Als ik een alert als success definieer wordt de juiste icon getoond', async () => {
+    it('Als gebruiker kan ik een success alert herkennen aan het icon', async () => {
         const alert = await vlAlertPage.getSuccessAlert();
         await assert.eventually.isTrue(alert.isSuccess());
     });
 
-    it('Als ik een alert als warning definieer wordt de juiste icon getoond', async () => {
+    it('Als gebruiker kan ik een warning alert herkennen aan het icon', async () => {
         const alert = await vlAlertPage.getAlertWarning();
         await assert.eventually.isTrue(alert.isWarning());
     });
 
-    it('Als ik een alert als error definieer wordt de juiste icon getoond', async () => {
+    it('Als gebruiker kan ik een error alert herkennen aan het icon', async () => {
         const alert = await vlAlertPage.getAlertError();
         await assert.eventually.isTrue(alert.isError());
     });
 
-    it('Als ik een alert als cta definieer, wordt de juiste icon getoond', async () => {
+    it('Als gebruiker kan ik een cta alert herkennen aan de cta stijl', async () => {
         const alert = await vlAlertPage.getCtaAlert();
         await assert.eventually.isTrue(alert.isCta());
     });
 
-    it('Als ik size als small definieer, zal de alert klein zijn', async () => {
+    it('Als gebruiker kan ik zien dat een alert met small size, klein is', async () => {
         const alert = await vlAlertPage.getSmallAlert();
         await assert.eventually.isTrue(alert.isSmall());
     });
 
-    it('Als ik size als large definieer, zal de alert groot zijn', async() => {
+    it('Als gebruiker kan ik zien dat een alert met large size, groot is', async() => {
         const alert = await vlAlertPage.getLargeAlert();
         await assert.eventually.isTrue(alert.isLarge());
     });
 
-    it('Als ik een alert met actions defineer, kan ik hiervan de tekst opvragen', async() => {
-      const button = await vlAlertPage.getButtonVanCtaAlert();
-      await assert.eventually.equal(button.getText(), 'Fout melden');
+    it('Als gebruiker kan ik de action button tekst van een alert met actions zien', async() => {
+        const button = await vlAlertPage.getButtonInAlert();
+        await assert.eventually.equal(button.getText(), 'Fout melden');
     });
 });
