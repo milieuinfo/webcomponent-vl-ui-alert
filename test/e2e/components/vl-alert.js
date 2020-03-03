@@ -2,11 +2,7 @@ const { VlElement } = require('vl-ui-core').Test;
 const { VlIcon } = require('vl-ui-icon').Test;
 const { By } = require('vl-ui-core').Test.Setup;
 
-class VlAlert extends VlElement {  
-    constructor(driver, selector) {
-        super(driver, selector);
-    }
-
+class VlAlert extends VlElement {
     async _exists(selector) {
         return await this.shadowRoot.findElement(By.css(selector)) != null;
     }
@@ -33,8 +29,9 @@ class VlAlert extends VlElement {
         return this._innerText('#title');
     }
 
-    async getMessage() {
-        return this._innerText('#message');
+    async getMessagesInSlot() {
+        const slot = await this.shadowRoot.findElement(By.css("#messages-slot"));
+        return this.getAssignedElements(slot);
     }
 
     async getActions() {
@@ -71,8 +68,12 @@ class VlAlert extends VlElement {
         return this._exists('[icon="warning"]');
     }
     
-    async isCta() {
+    async isInfo() {
         return this._exists('[icon="info"]');
+    }
+
+    async isCta() {
+        return this._alertHasClass('vl-alert--cta');
     }
 
     async isSmall() {

@@ -5,9 +5,9 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * VlAlert
  * @class
  * @classdesc Gebruik de vl-alert om de gebruiker te informeren over belangrijke informatie.
- *
+ * 
  * @extends VlElement
- *
+ * 
  * @property {string} title - Attribuut wordt gebruikt als titel van de waarschuwing.
  * @property {boolean} closable - Attribuut wordt gebruikt om de optie toe te voegen om de waarschuwing te sluiten door op het sluit icoon te klikken in de rechterbovenhoek..
  * @property {(small | large)} size - Attribuut activeert een variant van de waarschuwing maar kleiner.
@@ -27,10 +27,10 @@ export class VlAlert extends VlElement(HTMLElement) {
                 <div id="content" class="vl-alert__content">
                     <p id="title" class="vl-alert__title"></p>
                     <div id="message" class="vl-alert__message">
-                        <slot></slot>
+                        <slot id="messages-slot"></slot>
                     </div>
                     <div id="actions" class="vl-alert__actions">
-                        <slot name="actions"></slot>
+                        <slot id="actions-slot" name="actions"></slot>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ export class VlAlert extends VlElement(HTMLElement) {
 
     /**
      * Schakelt de werking van de close button uit zodat de alert niet gesloten kan worden.
-     *
+     * 
      * @Return {void}
      */
     disableClosable() {
