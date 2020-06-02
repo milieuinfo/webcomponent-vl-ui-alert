@@ -57,19 +57,19 @@ class VlAlert extends VlElement {
   }
 
   async isSuccess() {
-    return this._exists('[icon="check"]');
+    return this._exists('[data-vl-icon="check"]');
   }
 
   async isWarning() {
-    return this._exists('[icon="alert-triangle"]');
+    return this._exists('[data-vl-icon="alert-triangle"]');
   }
 
   async isError() {
-    return this._exists('[icon="warning"]');
+    return this._exists('[data-vl-icon="warning"]');
   }
 
   async isInfo() {
-    return this._exists('[icon="info"]');
+    return this._exists('[data-vl-icon="info"]');
   }
 
   async isCta() {

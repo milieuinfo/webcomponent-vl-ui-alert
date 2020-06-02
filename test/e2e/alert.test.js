@@ -18,7 +18,7 @@ describe('vl-alert', async () => {
     const alert = await vlAlertPage.getAlertWithIconInfoAndTitle();
     await assert.eventually.isTrue(alert.hasIcon());
     const icon = await alert.getIcon();
-    await assert.eventually.equal(icon.getIcon(), 'info');
+    await assert.eventually.equal(icon.getType(), 'info');
     await assert.eventually.isTrue(alert.isInfo());
   });
 
