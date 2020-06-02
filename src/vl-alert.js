@@ -21,22 +21,22 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
 export class VlAlert extends vlElement(HTMLElement) {
   constructor() {
     super(`
-            <style>
-                @import '/src/style.css';
-                @import '/node_modules/vl-ui-core/dist/style.css';
-            </style>
-            <div id="alert" class="vl-alert" role="alert">
-                <div id="content" class="vl-alert__content">
-                    <p id="title" class="vl-alert__title"></p>
-                    <div id="message" class="vl-alert__message">
-                        <slot id="messages-slot"></slot>
-                    </div>
-                    <div id="actions" class="vl-alert__actions">
-                        <slot id="actions-slot" name="actions"></slot>
-                    </div>
-                </div>
-            </div>
-        `);
+      <style>
+          @import '/src/style.css';
+          @import '/node_modules/vl-ui-core/dist/style.css';
+      </style>
+      <div id="alert" class="vl-alert" role="alert">
+          <div id="content" class="vl-alert__content">
+              <p id="title" class="vl-alert__title"></p>
+              <div id="message" class="vl-alert__message">
+                  <slot id="messages-slot"></slot>
+              </div>
+              <div id="actions" class="vl-alert__actions">
+                  <slot id="actions-slot" name="actions"></slot>
+              </div>
+          </div>
+      </div>
+    `);
   }
 
   connectedCallback() {
