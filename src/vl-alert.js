@@ -7,7 +7,6 @@ import '/node_modules/vl-ui-icon/dist/vl-icon.js';
  * @classdesc Gebruik de vl-alert om de gebruiker te informeren over belangrijke informatie.
  *
  * @extends HTMLElement
- * @mixin VlElement
  *
  * @property {string} title - Attribuut wordt gebruikt als titel van de waarschuwing.
  * @property {boolean} closable - Attribuut wordt gebruikt om de optie toe te voegen om de waarschuwing te sluiten door op het sluit icoon te klikken in de rechterbovenhoek..
