@@ -4,7 +4,7 @@ const VlAlertPage = require('./pages/vl-alert.page');
 describe('vl-alert', async () => {
   const vlAlertPage = new VlAlertPage(driver);
 
-  before(() => {
+  before(async () => {
     return vlAlertPage.load();
   });
 
