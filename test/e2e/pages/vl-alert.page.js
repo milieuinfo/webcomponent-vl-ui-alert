@@ -1,74 +1,45 @@
 const VlAlert = require('../components/vl-alert');
-const {VlButton} = require('vl-ui-button').Test;
 const {Page, Config} = require('vl-ui-core').Test;
 
 class VLAlertPage extends Page {
-  async _getAlert(selector) {
-    return new VlAlert(this.driver, selector);
-  }
-
-  async getAlertWithIconInfoAndTitle() {
-    return this._getAlert('#alert-iconAndTitle');
-  }
-
-  async getAlertWithIconAndMessage() {
-    return this._getAlert('#alert-iconAndMessage');
-  }
-
-  async getAlertWithIconTitleAndMessage() {
-    return this._getAlert('#alert-iconTitleAndMessage');
-  }
-
-  async getMessageInAlert() {
-    const alert = await this.getAlertWithIconAndMessage();
-    const message = (await alert.getMessagesInSlot())[0];
-    return message.getText();
+  async getAlert() {
+    return this._getAlert('#alert');
   }
 
   async getClosableAlert() {
     return this._getAlert('#alert-closable');
   }
 
-  async getSuccessAlert() {
-    return this._getAlert('#alert-success');
+  async getAlertWithButton() {
+    return this._getAlert('#alert-with-button');
   }
 
-  async getAlertWarning() {
-    return this._getAlert('#alert-warning');
+  async getSmallAlert() {
+    return this._getAlert('#alert-small');
   }
 
   async getAlertError() {
     return this._getAlert('#alert-error');
   }
 
-  async getCtaAlert() {
-    return this._getAlert('#alert-cta');
+  async getAlertWarning() {
+    return this._getAlert('#alert-warning');
   }
 
-  async getButtonInAlert() {
-    const alert = await this.getCtaAlert();
-    const button = (await alert.getActions())[0];
-    return new VlButton(this.driver, button);
+  async getSuccessAlert() {
+    return this._getAlert('#alert-success');
   }
 
-  async getSmallAlert() {
-    return this._getAlert('#alert-smallNoTitle');
-  }
-
-  async getSmallAlertWithTitle() {
-    return this._getAlert('#alert-smallTitle ');
-  }
-
-  async getSmallAlertWithTitleAndMessage() {
-    return this._getAlert('#alert-smallTitleAndMessage');
-  }
-
-  async getLargeAlert() {
-    return this._getAlert('#alert-large');
+  async getAlertInfo() {
+    return this._getAlert('#alert-info');
   }
 
   async load() {
     await super.load(Config.baseUrl + '/demo/vl-alert.html');
+  }
+
+  async _getAlert(selector) {
+    return new VlAlert(this.driver, selector);
   }
 }
 
