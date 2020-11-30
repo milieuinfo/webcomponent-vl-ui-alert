@@ -3,10 +3,12 @@ const VlAlertPage = require('./pages/vl-alert.page');
 const {VlButton} = require('vl-ui-button').Test;
 
 describe('vl-alert', async () => {
+  let driver;
   let vlAlertPage;
 
   before(() => {
-    vlAlertPage = new VlAlertPage(getDriver());
+    driver = getDriver();
+    vlAlertPage = new VlAlertPage(driver);
     return vlAlertPage.load();
   });
 
