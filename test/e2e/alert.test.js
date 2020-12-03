@@ -31,7 +31,6 @@ describe('vl-alert', async () => {
     await assert.eventually.equal(icon.getType(), 'warning');
   });
 
-
   it('als gebruiker kan ik het verschil zien tussen een closable en gewone alert', async () => {
     const alert = await vlAlertPage.getAlert();
     const closableAlert = await vlAlertPage.getClosableAlert();
