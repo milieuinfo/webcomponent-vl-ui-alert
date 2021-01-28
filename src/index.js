@@ -1,3 +1,1 @@
-module.exports = {
-  VlAlert: require('../dist/vl-alert.src.js').VlAlert,
-};
+export * from '../dist/vl-alert.src.js';
