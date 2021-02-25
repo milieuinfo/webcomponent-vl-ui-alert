@@ -130,8 +130,17 @@
 
       test('Wanneer de titel via een slot wordt doorgegeven wordt dit correct gerendered', () => {
         const alert = fixture('vl-alert-fixture-met-title-slot');
-        expect(alert.shadowRoot.querySelector('slot[name="title"]')).to.exist;
-        expect(alert.shadowRoot.querySelector('slot[name="title"]').assignedNodes()[0].textContent).to.equal('De Titel');
+        expect(alert._titleElement).to.exist;
+        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal('De Titel');
+      });
+
+      test('Wanneer de titel via een slot wordt doorgegeven kan dit nog dynamisch gewijzigd worden via attribuut', () => {
+        const alert = fixture('vl-alert-fixture-met-title-slot');
+        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal('De Titel');
+
+        const nieuweTitel = 'Een nieuwe titel';
+        alert.setAttribute('title', nieuweTitel);
+        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal(nieuweTitel);
       });
     });
   </script>
