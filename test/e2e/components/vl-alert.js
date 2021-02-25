@@ -12,7 +12,16 @@ class VlAlert extends VlElement {
   }
 
   async getTitle() {
-    return this._innerText('#title');
+    return (await this._getTitleSlotElements())[0].getText();
+  }
+
+  async _getTitleSlotElements() {
+    const titleSlot = await this._getTitleSlot();
+    return this.getAssignedElements(titleSlot);
+  }
+
+  async _getTitleSlot() {
+    return this.shadowRoot.findElement(By.css('#title slot'));
   }
 
   async getMessagesSlotElements() {
