@@ -16,10 +16,10 @@
     </template>
   </test-fixture>
 
-  <test-fixture id="vl-alert-fixture-met-title-slot">
+  <test-fixture id="vl-alert-fixture-with-title-slot">
     <template>
       <vl-alert>
-        <span slot="title">De Titel</span>
+        <span slot="title">de titel</span>
       </vl-alert>
     </template>
   </test-fixture>
@@ -44,13 +44,9 @@
     
       test('bevat een titel op basis van het titel attribuut', () => {
         const alert = fixture('vl-alert-fixture');
-
-        expect(alert._titleElement.assignedElements()).to.be.empty;
-
         const value = 'title';
         alert.setAttribute('title', value);
-
-        assert.isTrue(alert._titleElement.assignedElements()[0].textContent == value);
+        assert.isTrue(alert._titleSlotElement.textContent == value);
       });
 
       test('bevat element met juiste size class', () => {
@@ -128,19 +124,9 @@
         });
       });
 
-      test('Wanneer de titel via een slot wordt doorgegeven wordt dit correct gerendered', () => {
-        const alert = fixture('vl-alert-fixture-met-title-slot');
-        expect(alert._titleElement).to.exist;
-        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal('De Titel');
-      });
-
-      test('Wanneer de titel via een slot wordt doorgegeven kan dit nog dynamisch gewijzigd worden via attribuut', () => {
-        const alert = fixture('vl-alert-fixture-met-title-slot');
-        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal('De Titel');
-
-        const nieuweTitel = 'Een nieuwe titel';
-        alert.setAttribute('title', nieuweTitel);
-        expect(alert._titleElement.assignedNodes()[0].textContent).to.equal(nieuweTitel);
+      test('wanneer de titel via een slot wordt doorgegeven wordt dit correct gerendered', () => {
+        const alert = fixture('vl-alert-fixture-with-title-slot');
+        assert.equal(alert._titleSlotElement.assignedNodes()[0].textContent, 'de titel');
       });
     });
   </script>

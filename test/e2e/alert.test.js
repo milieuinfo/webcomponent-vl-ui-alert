@@ -94,6 +94,6 @@ describe('vl-alert', async () => {
 
   it('als gebruiker kan ik een de titel van een alert ook in een slot meegeven', async () => {
     const alert = await vlAlertPage.getAlertTitleSlot();
-    await assert.eventually.equal(alert.getTitle(), 'Titel via slot');
+    await assert.eventually.equal(alert.getTitle(), 'Info');
   });
 });
