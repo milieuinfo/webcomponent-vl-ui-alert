@@ -16,6 +16,14 @@
     </template>
   </test-fixture>
 
+  <test-fixture id="vl-alert-fixture-with-title-slot">
+    <template>
+      <vl-alert>
+        <span slot="title">de titel</span>
+      </vl-alert>
+    </template>
+  </test-fixture>
+
   <script>
     suite('vl-alert', () => {
       const should = chai.should();
@@ -38,7 +46,7 @@
         const alert = fixture('vl-alert-fixture');
         const value = 'title';
         alert.setAttribute('title', value);
-        assert.isTrue(alert._titleElement.textContent == value);
+        assert.isTrue(alert._titleSlotElement.textContent == value);
       });
 
       test('bevat element met juiste size class', () => {
@@ -114,6 +122,11 @@
           assert.isTrue(actionsSlotContent.hasAttribute('data-vl-narrow'));
           done();
         });
+      });
+
+      test('wanneer de titel via een slot wordt doorgegeven wordt dit correct gerendered', () => {
+        const alert = fixture('vl-alert-fixture-with-title-slot');
+        assert.equal(alert._titleSlotElement.assignedNodes()[0].textContent, 'de titel');
       });
     });
   </script>

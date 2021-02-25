@@ -31,7 +31,9 @@ export class VlAlert extends vlElement(HTMLElement) {
       </style>
       <div id="alert" class="vl-alert" role="alert">
         <div id="content" class="vl-alert__content">
-          <p id="title" class="vl-alert__title"></p>
+          <p id="title" class="vl-alert__title">
+            <slot name='title'></slot>
+          </p>
           <div id="message" class="vl-alert__message">
             <slot id="messages-slot"></slot>
           </div>
@@ -52,10 +54,6 @@ export class VlAlert extends vlElement(HTMLElement) {
     return 'vl-alert--';
   }
 
-  get _titleElement() {
-    return this._element.querySelector('.vl-alert__title');
-  }
-
   get _iconElement() {
     return this._element.querySelector('.vl-alert__icon');
   }
@@ -70,6 +68,10 @@ export class VlAlert extends vlElement(HTMLElement) {
 
   get _actionsSlotElement() {
     return this._element.querySelector('slot[name="actions"]');
+  }
+
+  get _titleSlotElement() {
+    return this._element.querySelector('slot[name="title"]');
   }
 
   _getIconTemplate(newValue) {
@@ -106,7 +108,7 @@ export class VlAlert extends vlElement(HTMLElement) {
   };
 
   _titleChangedCallback(oldValue, newValue) {
-    this._titleElement.textContent = newValue;
+    this._titleSlotElement.textContent = newValue;
   };
 
   _closableChangedCallback(oldValue, newValue) {

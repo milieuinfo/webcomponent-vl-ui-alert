@@ -12,7 +12,22 @@ class VlAlert extends VlElement {
   }
 
   async getTitle() {
-    return this._innerText('#title');
+    const element = (await this._getTitleSlotElements())[0];
+    if (element) {
+      return element.getText();
+    } else {
+      const slot = await this._getTitleSlot();
+      return slot.getTextContent();
+    }
+  }
+
+  async _getTitleSlot() {
+    return this.shadowRoot.findElement(By.css('#title slot'));
+  }
+
+  async _getTitleSlotElements() {
+    const slot = await this._getTitleSlot();
+    return this.getAssignedElements(slot);
   }
 
   async getMessagesSlotElements() {
@@ -65,11 +80,6 @@ class VlAlert extends VlElement {
 
   async _exists(selector) {
     return await this.shadowRoot.findElement(By.css(selector)) != null;
-  }
-
-  async _innerText(selector) {
-    const element = await this.shadowRoot.findElement(By.css(selector));
-    return this.driver.executeScript('return arguments[0].innerText', element);
   }
 
   async _isType(value) {

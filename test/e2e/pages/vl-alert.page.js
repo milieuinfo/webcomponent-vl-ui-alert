@@ -34,6 +34,10 @@ class VLAlertPage extends Page {
     return this._getAlert('#alert-info');
   }
 
+  async getAlertTitleSlot() {
+    return this._getAlert('#alert-title-slot');
+  }
+
   async load() {
     await super.load(Config.baseUrl + '/demo/vl-alert.html');
   }
