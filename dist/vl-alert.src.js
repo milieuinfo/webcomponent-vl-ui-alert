@@ -48,7 +48,9 @@ export class VlAlert extends vlElement(HTMLElement) {
 
   connectedCallback() {
     this.__processActionsElementVisibility();
+    this.__processTitleElementVisibility();
     this._actionsSlotElement.addEventListener('slotchange', () => this.__processButtons());
+    this._titleSlotElement.addEventListener('slotchange', () => this.__processTitleElementVisibility());
   }
 
   get _classPrefix() {
@@ -65,6 +67,10 @@ export class VlAlert extends vlElement(HTMLElement) {
 
   get _actionsElement() {
     return this._element.querySelector('.vl-alert__actions');
+  }
+
+  get _titleElement() {
+    return this._element.querySelector('.vl-alert__title');
   }
 
   get _actionsSlotElement() {
@@ -110,6 +116,7 @@ export class VlAlert extends vlElement(HTMLElement) {
 
   _titleChangedCallback(oldValue, newValue) {
     this._titleSlotElement.textContent = newValue;
+    this.__processTitleElementVisibility();
   };
 
   _closableChangedCallback(oldValue, newValue) {
@@ -138,6 +145,12 @@ export class VlAlert extends vlElement(HTMLElement) {
     } else {
       this._element.classList.remove(this._classPrefix + oldValue);
     }
+  }
+
+  __processTitleElementVisibility() {
+    this._titleElement.hidden = this._titleSlotElement &&
+        this._titleSlotElement.assignedElements().length == 0 &&
+        this._titleSlotElement.textContent.trim() === '';
   }
 
   __processActionsElementVisibility() {
