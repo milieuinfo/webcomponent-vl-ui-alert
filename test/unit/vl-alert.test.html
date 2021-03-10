@@ -129,7 +129,6 @@
         const alert = fixture('vl-alert-fixture-with-title-slot');
         assert.equal(alert._titleSlotElement.assignedNodes()[0].textContent, 'de titel');
         assert.isFalse(alert._titleElement.hidden);
-
       });
 
       test('wanneer er geen titel opgegeven werd, wordt het titel element verborgen', () => {
