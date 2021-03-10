@@ -27,7 +27,7 @@
   <script>
     suite('vl-alert', () => {
       const should = chai.should();
-    
+
       test('het icon attribuut wordt correct doorgegeven aan het icoon element', () => {
         const alert = fixture('vl-alert-fixture');
         let value = 'warning';
@@ -41,12 +41,13 @@
         alert.removeAttribute('data-vl-icon');
         should.not.exist(alert._iconElement);
       });
-    
+
       test('bevat een titel op basis van het titel attribuut', () => {
         const alert = fixture('vl-alert-fixture');
         const value = 'title';
         alert.setAttribute('title', value);
         assert.isTrue(alert._titleSlotElement.textContent == value);
+        assert.isFalse(alert._titleElement.hidden);
       });
 
       test('bevat element met juiste size class', () => {
@@ -127,6 +128,38 @@
       test('wanneer de titel via een slot wordt doorgegeven wordt dit correct gerendered', () => {
         const alert = fixture('vl-alert-fixture-with-title-slot');
         assert.equal(alert._titleSlotElement.assignedNodes()[0].textContent, 'de titel');
+        assert.isFalse(alert._titleElement.hidden);
+      });
+
+      test('wanneer er geen titel opgegeven werd, wordt het titel element verborgen', () => {
+        const alert = fixture('vl-alert-fixture');
+        assert.isTrue(alert._titleElement.hidden);
+      });
+
+      test('wanneer de titel via een attribuut verwijderd wordt, wordt het titel element verborgen', () => {
+        const alert = fixture('vl-alert-fixture');
+
+        alert.setAttribute('title', 'foobar');
+        assert.isFalse(alert._titleElement.hidden);
+
+        alert.setAttribute('title', '');
+        assert.isTrue(alert._titleElement.hidden);
+      });
+
+      test('wanneer het titel slot achteraf toegevoegd wordt, wordt het titel element getoond', (done) => {
+        const alert = fixture('vl-alert-fixture');
+
+        assert.isTrue(alert._titleElement.hidden);
+
+        const title = document.createElement('div');
+        title.setAttribute('slot', 'title');
+        title.textContent = 'foobar';
+        alert.appendChild(title);
+
+        setTimeout(() => {
+          assert.isFalse(alert._titleElement.hidden);
+          done();
+        });
       });
     });
   </script>
