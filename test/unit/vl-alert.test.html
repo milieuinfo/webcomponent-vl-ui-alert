@@ -135,6 +135,32 @@
         const alert = fixture('vl-alert-fixture');
         assert.isTrue(alert._titleElement.hidden);
       });
+
+      test('wanneer de titel via een attribuut verwijderd wordt, wordt het titel element verborgen', () => {
+        const alert = fixture('vl-alert-fixture');
+
+        alert.setAttribute('title', 'foobar');
+        assert.isFalse(alert._titleElement.hidden);
+
+        alert.setAttribute('title', '');
+        assert.isTrue(alert._titleElement.hidden);
+      });
+
+      test('wanneer het titel slot achteraf toegevoegd wordt, wordt het titel element getoond', (done) => {
+        const alert = fixture('vl-alert-fixture');
+
+        assert.isTrue(alert._titleElement.hidden);
+
+        const title = document.createElement('div');
+        title.setAttribute('slot', 'title');
+        title.textContent = 'foobar';
+        alert.appendChild(title);
+
+        setTimeout(() => {
+          assert.isFalse(alert._titleElement.hidden);
+          done();
+        });
+      });
     });
   </script>
 </body>
